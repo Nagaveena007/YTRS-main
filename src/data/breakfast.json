@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Pasta",
+    "img": "https://ais.kochbar.de/kbrezept/306041_1010094/1200x1200/pasta-aurora-rezept-bild-nr-2.jpg",
+    "url": "https://youtu.be/jBoMTZIHqLc",
+    "price": 10,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      {
+        "items": "Pesto",
+        "quantity": 10,
+        "unit": "gm"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Soupe",
+    "img": "https://recette.supertoinette.com/150844/b/veloute-de-carottes-au-curry-et-lait-de-coco.jpg",
+    "url": "https://www.youtube.com/watch?v=w_O39ecBCXE",
+    "price": 15,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      { "items": "Pesto", "quantity": 10, "unit": "gm" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sandwitch",
+    "img": "https://content3.jdmagicbox.com/comp/chennai/a8/044pxx44.xx44.190716183052.z1a8/catalogue/sandwitch-chennai-fast-food-delivery-services-44jx9vznst.jpg",
+    "url": "https://www.youtube.com/watch?v=atrx60ulTJo",
+    "price": 12,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      { "items": "Pesto", "quantity": 10, "unit": "gm" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Pizza",
+    "img": "https://www.eat-this.org/wp-content/uploads/2020/06/eat_this_die_perfekte_vegane_pizza-22.jpg",
+    "url": "https://www.youtube.com/watch?v=1-SJGQ2HLp8",
+    "price": 6,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      { "items": "Pesto", "quantity": 10, "unit": "gm" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Garlic Bread",
+    "img": "https://www.foodiecrush.com/wp-content/uploads/2021/09/Garlic-Bread-foodiecrush.com-007.jpg",
+    "url": "https://www.youtube.com/watch?v=FkV_fU5GoXM",
+    "price": 8,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      { "items": "Pesto", "quantity": 10, "unit": "gm" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Penne",
+    "img": "https://www.justspices.de/media/recipe/a/r/arrabbiata_gewuerz_penne_all_arrabbiata-4.jpg",
+    "url": "https://www.youtube.com/watch?v=BX_YeEH2DCk",
+    "price": 15,
+    "cookingTime": 10,
+    "Ingredients": [
+      {
+        "items": "Speghati",
+        "quantity": 10,
+        "unit": "gm"
+      },
+      { "items": "Pesto", "quantity": 10, "unit": "gm" }
+    ]
+  }
+]

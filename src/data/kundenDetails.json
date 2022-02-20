@@ -1,0 +1,74 @@
+[
+  {
+    "name": "2, 1",
+    "Nr": "K-1082",
+    "Adresse": "Gartenstraße, 15325143 Berlin",
+    "Projekte": "0",
+    "LetzteÄnderung": "16.09.2021",
+    "category": "kunden"
+  },
+  {
+    "name": "Air Jordan",
+    "Nr": "K-1047",
+    "Adresse": "Chicago, 30539 Chicago",
+    "Projekte": "2",
+    "LetzteÄnderung": "02.01.2021",
+    "category": "kunden"
+  },
+  {
+    "name": "ABC GmbH",
+    "Nr": "",
+    "Adresse": "Testgeschoss,Salzachstraße 43, 14129 Berlin",
+    "Projekte": "5",
+    "LetzteÄnderung": "08.06.2021",
+    "category": "kunden"
+  },
+  {
+    "name": "asdf, asdf",
+    "Nr": "K-1018",
+    "Adresse": "Antonstraße , 33108 Paderborn",
+    "Projekte": "1",
+    "LetzteÄnderung": "15.09.2020",
+    "category": "kunden"
+  },
+  {
+    "name": "ABCD",
+    "Nr": " DS-5372654358",
+    "Adresse": "c/o Gebäude C, Dircksenstraße 41, 10178 Berlin",
+    "Projekte": "9",
+    "LetzteÄnderung": " 20.10.2021",
+    "category": "kunden"
+  },
+  {
+    "name": "Ali",
+    "Nr": "K-1073",
+    "Adresse": "Alistr., Ismaninger Straße 22, 81675 München",
+    "Projekte": "2",
+    "LetzteÄnderung": "19.08.2021",
+    "category": "kunden"
+  },
+  {
+    "name": "asdf, asdf",
+    "Nr": "K-1022",
+    "Adresse": "Antonienstraße 4, 47053 Duisburg",
+    "Projekte": "2",
+    "LetzteÄnderung": "15.09.2020",
+    "category": "kunden"
+  },
+  {
+    "name": "asdf, asdf",
+    "Nr": "K-1018",
+    "Adresse": "Antonstraße , 33108 Paderborn",
+    "Projekte": "1",
+    "LetzteÄnderung": "15.09.2020",
+    "category": "kunden"
+  },
+  {
+    "name": "Ali",
+    "Nr": "K-1073",
+    "Adresse": "Alistr., Ismaninger Straße 22, 81675 München",
+    "Projekte": "2",
+    "LetzteÄnderung": "19.08.2021",
+    "category": "kunden"
+  }
+]
