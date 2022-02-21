@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }; */
 
 export default function Checkout() {
-  // let totalPay = useSelector((state) => state.total.payment);
+  let totalPay = useSelector((state) => state.total.payment);
   const cartList = useSelector((state) => state.cart.recipesToBuy);
 
   const dispatch = useDispatch();
@@ -37,10 +37,10 @@ export default function Checkout() {
   const classes = useStyles();
   let surcharge = 2.1;
   let delivery_fee = 1.8;
-  let totalPay = cartList.reduce(
+  /*   let totalPay = cartList.reduce(
     (acc, currentValue) => acc + parseFloat(currentValue.price),
     0
-  );
+  ); */
   let toal_payment = Math.round(delivery_fee + totalPay + surcharge).toFixed(2);
 
   const handleToken = async (token) => {

@@ -27,13 +27,6 @@ export const adjustItemQty = (index, qty) => ({
   },
 });
 
-export const loadCurrentItem = (food) => {
-  return {
-    type: LOAD_CURRENT_ITEM,
-    payload: food,
-  };
-};
-
 export const addToFavoAction = (food) => ({
   type: ADD_TO_FAV,
   payload: food,
@@ -49,7 +42,7 @@ export const setUserName = (name) => ({
 });
 export const getTotal = (total) => ({
   type: SET_TOTAL,
-  payload: total,
+  payload: Number(total),
 });
 
 export const getRecipesAction = () => {

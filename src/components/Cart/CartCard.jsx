@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import { loadCSS } from "fg-loadcss";
 import { useDispatch, useSelector } from "react-redux";
-import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,14 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const CartCard = ({ breakfast, i }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const cartList = useSelector((state) => state.cart.recipesToBuy);
 
-  const [expanded, setExpanded] = React.useState(false);
-  const [recipesSelected, setRecipesSelected] = React.useState(null);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   React.useEffect(() => {
     const node = loadCSS(
       "https://use.fontawesome.com/releases/v5.12.0/css/all.css",
