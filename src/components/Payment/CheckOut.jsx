@@ -11,6 +11,7 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Checkout() {
   let totalPay = useSelector((state) => state.total.payment);
   const cartList = useSelector((state) => state.cart.recipesToBuy);
-
+  const [tip, setTip] = useState(null);
+  console.log(totalPay);
   const dispatch = useDispatch();
 
   const classes = useStyles();
@@ -41,7 +43,9 @@ export default function Checkout() {
     (acc, currentValue) => acc + parseFloat(currentValue.price),
     0
   ); */
-  let toal_payment = Math.round(delivery_fee + totalPay + surcharge).toFixed(2);
+  let toal_payment = Math.round(
+    delivery_fee + totalPay + surcharge + tip
+  ).toFixed(2);
 
   const handleToken = async (token) => {
     const response = await axios.post(
@@ -84,6 +88,20 @@ export default function Checkout() {
                   className="mr-3"
                   variant="contained"
                   style={{ width: "15%" }}
+                  onClick={() => {
+                    setTip(5);
+                  }}
+                >
+                  € 5
+                </Button>
+                <Button
+                  sm={12}
+                  className="mx-3"
+                  variant="contained"
+                  style={{ width: "15%" }}
+                  onClick={() => {
+                    setTip(10);
+                  }}
                 >
                   € 10
                 </Button>
@@ -92,33 +110,35 @@ export default function Checkout() {
                   className="mx-3"
                   variant="contained"
                   style={{ width: "15%" }}
+                  onClick={() => {
+                    setTip(15);
+                  }}
                 >
-                  € 10
+                  € 15
                 </Button>
                 <Button
                   sm={12}
                   className="mx-3"
                   variant="contained"
                   style={{ width: "15%" }}
+                  onClick={() => {
+                    setTip(20);
+                  }}
                 >
-                  € 10
+                  € 20
                 </Button>
                 <Button
                   sm={12}
                   className="mx-3"
                   variant="contained"
                   style={{ width: "15%" }}
+                  onClick={() => {
+                    setTip(25);
+                  }}
                 >
-                  € 10
+                  € 25
                 </Button>
-                <Button
-                  sm={12}
-                  className="ml-3"
-                  variant="contained"
-                  style={{ width: "15%" }}
-                >
-                  € 10
-                </Button>
+
                 <div className="mt-2" style={{ color: "green" }}>
                   <strong> Our riders recive 100% of your tip</strong>
                 </div>
@@ -130,7 +150,7 @@ export default function Checkout() {
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             <div sm={12} className="card" style={{ width: "100%" }}>
-              <ul className="list-group list-group-flush " disableSpacing>
+              <ul className="list-group list-group-flush ">
                 <li sm={12} className="list-group-item d-flex">
                   <small>SUBTOTAL </small>
                   <small className="ml-auto">{totalPay} EUR</small>
@@ -166,7 +186,7 @@ export default function Checkout() {
             <StripeCheckout
               stripeKey="pk_test_51KSjz0EcIioZXTXKo4xyhU5Y1HoNIOVXBRKjy5fxcZ7TFEyQ7eCCwp7SeS2rMJQNmYnUYQfP6ZsFZzZXCQt8P9Bd00plTWBxMc"
               token={handleToken}
-              name="Recipes Check Out"
+              name="Shipping Details"
               products={cartList}
               Payment={toal_payment * 100}
               billingAddress

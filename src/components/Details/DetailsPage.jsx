@@ -19,8 +19,10 @@ import PaymentPage from "../Payment/PaymentPage";
 import { Label } from "@material-ui/icons";
 import "./Details.css";
 const DetailsPage = () => {
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(4);
   const [dish, setDish] = useState(undefined);
+  const [quantity, setQuantity] = useState(1);
+
   const recipes = useSelector((state) => state.recipes.recipesList);
   const dispatch = useDispatch();
   const params = useParams();
@@ -30,7 +32,17 @@ const DetailsPage = () => {
     setDish(recipesToShow);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const increaseQuantity = () => {
+    if (dish && dish.length <= quantity) return;
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
 
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
   return (
     <Container>
       {dish ? (
@@ -65,10 +77,16 @@ const DetailsPage = () => {
               {/*   <DishReviews selectedDish={dish} /> */}
             </Col>
             <Col md={4}>
-              <div disableSpacing className="card-body">
+              <div className="card-body">
                 <h3 className="card-title">{dish.name}</h3>
-                {/*  <small>In stock</small> */}
-                <Box component="fieldset" mb={3} borderColor="transparent">
+                <p>
+                  <b className="text-success">In stock</b>
+                </p>
+                <Box
+                  className="d-flex"
+                  component="fieldset"
+                  borderColor="transparent"
+                >
                   <Rating
                     name="simple-controlled"
                     value={value}
@@ -76,34 +94,59 @@ const DetailsPage = () => {
                       setValue(newValue);
                     }}
                   />
-                  <small color="green">(8 Reviews)</small>
+                  <h6 className="ml-2 mt-1 ">
+                    {dish.comments.length} ( Reviews)
+                  </h6>
                 </Box>
+                <hr></hr>
+                <div className="d-flex">
+                  <h5>Price:</h5>
+                  <h4 className="pricedetail ml-2 text-danger">
+                    {" "}
+                    € {dish.price}
+                  </h4>
+                </div>
                 <br />
-                <h4 className="card-title">€ {dish.price} </h4>
                 {/*     <h4 className="card-title">
                   {dish.ingredients.items}
                   {dish.ingredients.quantity}
                   {dish.ingredients.unit}
                 </h4> */}
+                <h5 className="mr-2 mt-2" style={{ fontSize: "20px" }}>
+                  Quantity:
+                </h5>
                 <ButtonGroup
                   variant="contained"
                   color="primary"
                   aria-label="contained primary button group"
                 >
-                  <Button size="small" fontSize="small">
+                  <Button
+                    /* size="small"
+                    fontSize="small"
+                    className="btn btn-primary mr-1" */
+                    disabled={dish.length === 1 ? true : false}
+                    onClick={decreaseQuantity}
+                  >
                     -
                   </Button>
+                  <input
+                    readOnly
+                    className="input pl-3"
+                    value={quantity}
+                    type="number"
+                    style={{ border: "none", width: "30px" }}
+                  />
+
                   <Button
-                    variant="contained"
-                    color="primary"
-                    disabled
-                    style={{ color: "black" }}
+                    //className="btn btn-primary ml-1"
+                    disabled={dish.length === 1 ? true : false}
+                    onClick={increaseQuantity}
                   >
-                    1
+                    +
                   </Button>
-                  <Button>+</Button>
                 </ButtonGroup>
                 {console.log(dish.ingredients)}
+
                 <p className="card-text">
                   <br />
                   <Button
@@ -123,7 +166,7 @@ const DetailsPage = () => {
             </Col>
           </Row>
           <Row>
-            <PaymentPage ingredients={dish} />
+            <PaymentPage dish={dish} />
           </Row>
         </>
       ) : (

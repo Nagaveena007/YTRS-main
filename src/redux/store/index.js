@@ -1,6 +1,7 @@
 import { compose, applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import cartReducer from "../reducer/cartReducer";
+import cartNewReducer from "../reducer/cartNewReducer";
 import likeReducer from "../reducer/likeReducer";
 import recipeReducer from "../reducer/recipeReducer";
 import totalReducer from "../reducer/totalReducer";

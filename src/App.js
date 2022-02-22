@@ -17,6 +17,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
 import DetailsPage from "./components/Details/DetailsPage";
 import NotFound from "./components/NotFoundPage/NotFound";
+import OrderSuccess from "./components/Payment/OrderSuccess";
 
 const drawerWidth = 240;
 
@@ -101,6 +102,7 @@ function App() {
               <Route path="/cart-Ind" element={<CartInd />} />
               <Route path="/liked-Recipes" element={<LikedRecipes />} />
               <Route path="/details/:recipeId" element={<DetailsPage />} />
+              <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

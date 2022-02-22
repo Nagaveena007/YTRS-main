@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../action";
+import { ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QTY } from "../action";
 import { initialState } from "../store";
 
 const cartReducer = (state = initialState.cart, action) => {
@@ -16,7 +16,15 @@ const cartReducer = (state = initialState.cart, action) => {
           (food, i) => i !== action.payload
         ),
       };
-
+    case ADJUST_ITEM_QTY:
+      return {
+        ...state,
+        recipesToBuy: state.recipesToBuy.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, qty: +action.payload.qty }
+            : item
+        ),
+      };
     default:
       return state;
   }

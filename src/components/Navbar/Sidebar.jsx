@@ -262,7 +262,7 @@ const Sidebar = () => {
         <List>
           {iconName.map(({ name, index, icon, link }) => {
             return (
-              <Link to={link} key={index}>
+              <Link to={link} key={name}>
                 <ListItem button>
                   <ListItemIcon>
                     <span fontSize="large" className="menu__item">

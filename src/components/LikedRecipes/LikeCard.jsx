@@ -110,7 +110,7 @@ const LikeCard = ({ breakfast, i }) => {
             the mussels, if you like.
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions >
           <Typography paragraph variant="body2">
             <strong>Price: € {breakfast.price}</strong>
           </Typography>
@@ -128,7 +128,7 @@ const LikeCard = ({ breakfast, i }) => {
             </IconButton>
           </Typography>
         </CardActions>
-        <CardActions disableSpacing>
+        <CardActions >
           <IconButton variant="warning" color="textSecondary" component="p">
             <Button
               variant="contained"

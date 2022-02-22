@@ -1,10 +1,9 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QTY } from "../action";
 import { initialState } from "../store";
 
-const cartReducer = (state = initialState, action) => {
+const cartNewReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      // Great Item data from products array
       const item = state.recipes.recipesList.find(
         (product) => product.id === action.payload.id
       );
@@ -23,14 +22,14 @@ const cartReducer = (state = initialState, action) => {
             )
           : [...state.cart.recipesToBuy, { ...item, qty: 1 }],
       };
-    case actionTypes.REMOVE_FROM_CART:
+    case REMOVE_FROM_CART:
       return {
         ...state,
         recipesToBuy: state.cart.recipesToBuy.filter(
           (item, i) => i !== action.payload
         ),
       };
-    case actionTypes.ADJUST_ITEM_QTY:
+    case ADJUST_ITEM_QTY:
       return {
         ...state,
         recipesToBuy: state.cart.recipesToBuy.map((item) =>
@@ -44,4 +43,4 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default cartReducer;
+export default cartNewReducer;

@@ -7,10 +7,9 @@ import { useSelector, useDispatch } from "react-redux";
 import CartCard from "./CartCard";
 import Checkout from "../Payment/CheckOut";
 import { Link } from "react-router-dom";
-
+import "./Cart.css";
 const Cart = () => {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
-  let totalPay = useSelector((state) => state.total.payment);
   let total = cartList.reduce(
     (acc, currentValue) => acc + parseFloat(currentValue.price),
     0
@@ -18,42 +17,41 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container className="home__wrap">
-      <Col sm={12} className="cart__products">
-        <ul style={{ listStyle: "none" }}>
-          {cartList.map((recipe, i) => (
-            <>
-              <li key={i} className="my-4">
-                <CartCard breakfast={recipe} i={i} />
-              </li>
-            </>
-          ))}
-        </ul>
-      </Col>
+    <Container className="">
       <Row>
-        <Col sm={12} className="font-weight-bold">
-          {}
-          {/*   TOTAL:
-          {cartList.reduce(
-            (acc, currentValue) => acc + parseFloat(currentValue.price),
-            0
-          )} */}
-          totalPay: {total}
-        </Col>
-        <Col>
-          <Link to="/checkout">
-            <Button
-              variant="contained"
-              size="large"
-              color="primary"
-              onClick={() => {
-                dispatch(getTotal({ total }));
-              }}
-            >
-              CheckOut
-            </Button>
-          </Link>
-        </Col>
+        <div className="cart">
+          <div className="cart__items">
+            {cartList.map((recipe, i) => (
+              <CartCard breakfast={recipe} i={i} />
+            ))}
+          </div>
+
+          <div className="cart__summary">
+            <h4 className="summary__title">Cart Summary</h4>
+            <div className="summary__price">
+              <span>TOTAL: ({cartList.length} items)</span>
+              <span>$ {total}</span>
+            </div>
+            {cartList.length !== 0 ? (
+              <Link to="/checkout">
+                <button
+                  className="summary__checkoutBtn"
+                  onClick={() => {
+                    dispatch(getTotal(total));
+                  }}
+                >
+                  Proceed To Checkout
+                </button>
+              </Link>
+            ) : (
+              <Link to="/">
+                <button className="summary__checkoutBtn">
+                  Add Items to cart
+                </button>
+              </Link>
+            )}
+          </div>
+        </div>
       </Row>
     </Container>
   );

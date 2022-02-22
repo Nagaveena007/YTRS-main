@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   root: {},
 });
 
-export default function PaymentPage({ ingredients }) {
+export default function PaymentPage({ dish }) {
   const classes = useStyles();
 
   return (
@@ -48,8 +48,10 @@ export default function PaymentPage({ ingredients }) {
           </AccordionSummary>
           <AccordionDetails>
             <Typography color="textSecondary">
-              The focus event of the nested action will propagate up and also
-              focus the accordion unless you explicitly stop it.
+              {/*  {dish.comments[0].comment} */}
+              {dish.comments.map((recipe, i) => (
+                <p>{recipe.comment}</p>
+              ))}
             </Typography>
           </AccordionDetails>
         </Accordion>

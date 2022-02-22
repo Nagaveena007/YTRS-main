@@ -1,4 +1,4 @@
-import { SET_TOTAL } from "../action";
+import { SET_TOTAL, ADJUST_ITEM_QTY } from "../action";
 import { initialState } from "../store";
 const totalReducer = (state = initialState.total, action) => {
   switch (action.type) {

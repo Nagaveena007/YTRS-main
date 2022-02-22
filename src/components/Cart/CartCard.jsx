@@ -1,7 +1,8 @@
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { removeFromCartAction } from "../../redux/action";
-import "../../components/Home/Home.css";
+//import "../../components/Home/Home.css";
+import "./Cart.css";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -9,7 +10,13 @@ import { red } from "@material-ui/core/colors";
 import { loadCSS } from "fg-loadcss";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteIcon from "@material-ui/icons/Delete";
+import "../../components/Home/Home.css";
+import clsx from "clsx";
 
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import { useState } from "react";
+import { adjustItemQty } from "../../redux/action";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -42,8 +49,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CartCard = ({ breakfast, i }) => {
-  const classes = useStyles();
   const dispatch = useDispatch();
+
+  const [input, setInput] = useState(1 /* breakfast.qty */);
+
+  const classes = useStyles();
 
   React.useEffect(() => {
     const node = loadCSS(
@@ -57,60 +67,40 @@ const CartCard = ({ breakfast, i }) => {
   }, []);
   return (
     <>
-      <div className="card mb-3" style={{ width: "58em" }}>
-        <div className="row no-gutters">
-          <div className="col-md-4">
-            <img
-              src={breakfast.img}
-              alt="..."
-              style={{
-                width: "15rem",
-                height: "30vh",
-                /*, objectFit: "contain", */
+      <div className="cartItem" md={12}>
+        <img className="cartItem__image" src={breakfast.img} />
+        <div className="cartItem__details">
+          <p className="details__title">{breakfast.name}</p>
+          <p className="details__desc">{`Cooking time: ${breakfast.cookingTime} min`}</p>
+          <p className="details__price">$ {breakfast.price}</p>
+        </div>
+        <div className="cartItem__actions">
+          <div className="cartItem__qty">
+            <label htmlFor="qty">Qty</label>
+            <input
+              min="1"
+              type="number"
+              id="qty"
+              name="qty"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                dispatch(adjustItemQty(breakfast.id, e.target.value));
               }}
             />
           </div>
-          <div className="col-md-8">
-            <div disableSpacing className="card-body">
-              <h5 className="card-title">{breakfast.name}</h5>
-              <small>In stock</small> <br />
-              <ButtonGroup
-                variant="contained"
-                color="primary"
-                aria-label="contained primary button group"
-              >
-                <Button size="small" fontSize="small">
-                  -
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled
-                  style={{ color: "black" }}
-                >
-                  1
-                </Button>
-                <Button>+</Button>
-              </ButtonGroup>
-              <p className="card-text">{breakfast.ingredients}</p>
-              <p className="card-text">
-                <small className="text-muted">{`Cooking time: ${breakfast.cookingTime} min`}</small>
-                <br />
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="small"
-                  className={`mt-2 ${classes.button}`}
-                  startIcon={<DeleteIcon />}
-                  onClick={() => {
-                    dispatch(removeFromCartAction(i));
-                  }}
-                >
-                  Delete
-                </Button>
-              </p>
-            </div>
-          </div>
+
+          <button
+            variant="contained"
+            color="secondary"
+            size="small"
+            className={`actions__deleteItemBtn ml-5`}
+            onClick={() => {
+              dispatch(removeFromCartAction(i));
+            }}
+          >
+            <DeleteIcon />
+          </button>
         </div>
       </div>
     </>
