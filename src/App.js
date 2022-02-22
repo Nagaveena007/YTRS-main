@@ -10,7 +10,7 @@ import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/Payment/CheckOut";
 import { Container, Row, Col } from "react-bootstrap";
 import RecipeCard from "./components/Home/RecipeCard";
-import PaymentPage from "./components/Payment/PaymentPage";
+import PaymentPage from "./components/Details/Reviews";
 import CartInd from "./components/Cart/CartInd";
 import Sidebar from "./components/Navbar/Sidebar";
 import { makeStyles, useTheme } from "@material-ui/core/styles";

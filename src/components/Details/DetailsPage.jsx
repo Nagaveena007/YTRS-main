@@ -15,7 +15,7 @@ import Typography from "@material-ui/core/Typography";
 import ReactPlayer from "react-player";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { addToCartAction } from "../../redux/action";
-import PaymentPage from "../Payment/PaymentPage";
+import Reviews from "./Reviews";
 import { Label } from "@material-ui/icons";
 import "./Details.css";
 const DetailsPage = () => {
@@ -166,7 +166,7 @@ const DetailsPage = () => {
             </Col>
           </Row>
           <Row>
-            <PaymentPage dish={dish} />
+            <Reviews dish={dish} />
           </Row>
         </>
       ) : (
