@@ -5,9 +5,8 @@ const cartNewReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       const item = state.recipes.recipesList.find(
-        (product) => product.id === action.payload.id
+        (dish) => dish.id === action.payload.id
       );
-      // Check if Item is in cart already
       const inCart = state.cart.recipesToBuy.find((item) =>
         item.id === action.payload.id ? true : false
       );
