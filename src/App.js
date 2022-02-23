@@ -92,9 +92,8 @@ function App() {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Routes>
-              {/*               <Route path="/" element={<RecipeStore />} />
-               */}{" "}
-              <Route path="/breakfast" element={<BreakFast />} />
+            
+                <Route path="/breakfast" element={<BreakFast />} /> 
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckOut />} />

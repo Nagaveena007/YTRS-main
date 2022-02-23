@@ -50,7 +50,7 @@ export const getRecipesAction = () => {
     try {
       const resp = await fetch(
         "http://localhost:3000/recipes"
-        //"https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
+        // "https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
       );
       if (resp.ok) {
         const food = await resp.json();

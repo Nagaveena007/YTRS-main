@@ -1,35 +1,35 @@
 import { Col, Container, Row, Image } from "react-bootstrap";
 import "../../components/Home/Home.css";
 
-const BreakFast = ({ breakfast }) => {
+import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+const BreakFast = () => {
+  const breakfast = useSelector((state) => state.recipes.recipesList);
+
   return (
     <Container>
       <Row>
-        {breakfast.map((b, i) => (
+        {breakfast.fields.map((b, i) => (
           <>
             <Col key={i} md={6}>
               <Image src={b.img} thumbnail />
             </Col>
             <Col md={6}>
               <div class="card-body">
-                <h4 class="card-title">{b.name}</h4>
+                <h4 class="card-title">{b.Name}</h4>
                 <h6>
-                  <strong>Required Ingredients</strong>{" "}
+                  <strong>Required Ingredients</strong>
                 </h6>
-                <p class="card-text">
-                  {b.Ingredients.map((ing, i) => (
-                    <div key={i}>
-                      {ing.items}-{ing.quantity}
-                      {ing.unit}
-                    </div>
-                  ))}
-                </p>
+                <p class="card-text">{b.Ingredients}</p>
+
                 <p class="card-title">
                   {" "}
-                  <strong>Cooking time:</strong> {b.cookingTime} min
+                  <strong>Cooking time:</strong> 30min
                 </p>
                 <h6 class="card-title">
-                  <strong>Price:</strong> ${b.price}{" "}
+                  <strong>Price:</strong> ${b.Price}{" "}
                 </h6>
               </div>
             </Col>
