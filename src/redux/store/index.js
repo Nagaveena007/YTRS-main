@@ -2,7 +2,6 @@ import { compose, applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import cartReducer from "../reducer/cartReducer";
 import cartNewReducer from "../reducer/cartNewReducer";
-import cartReducer1 from "../reducer/cartReducer1";
 import likeReducer from "../reducer/likeReducer";
 import recipeReducer from "../reducer/recipeReducer";
 import totalReducer from "../reducer/totalReducer";
@@ -31,7 +30,7 @@ export const initialState = {
   },
 };
 const bigReducer = combineReducers({
-  cart: cartReducer,
+  cart: cartNewReducer,
   recipes: recipeReducer,
   total: totalReducer,
   like: likeReducer,

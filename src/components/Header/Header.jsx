@@ -90,7 +90,7 @@ const Header = () => {
             <CartIndicator />
             <Avatar
               alt="Remy Sharp"
-              src="me-discord.jpg"
+              src="/me-discord.jpg"
               className="mr-1 ml-2 mt-2"
             />
           </Nav>

@@ -17,32 +17,40 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { addToCartAction } from "../../redux/action";
 import Reviews from "./Reviews";
 import { Label } from "@material-ui/icons";
+import { adjustItemQty } from "../../redux/action";
+
 import "./Details.css";
+
 const DetailsPage = () => {
-  const [value, setValue] = React.useState(4);
+  const params = useParams();
+  let recipeId = params.recipeId;
+  let id = parseInt(recipeId);
+
   const [dish, setDish] = useState(undefined);
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
+
+  // const quantity = useSelector((state) => state.cart.recipesToBuy[id].qty);
 
   const recipes = useSelector((state) => state.recipes.recipesList);
   const dispatch = useDispatch();
-  const params = useParams();
+
   useEffect(() => {
-    let recipeId = params.recipeId;
     let recipesToShow = recipes.find((d) => d.id.toString() === recipeId);
     setDish(recipesToShow);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const increaseQuantity = () => {
+  /*  const increaseQuantity = () => {
     if (dish && dish.length <= quantity) return;
     const qty = quantity + 1;
     setQuantity(qty);
-  };
+  }; */
 
-  const decreaseQuantity = () => {
+  /*  const decreaseQuantity = () => {
     if (1 >= quantity) return;
     const qty = quantity - 1;
     setQuantity(qty);
-  };
+  }; */
   return (
     <Container>
       {dish ? (
@@ -64,7 +72,6 @@ const DetailsPage = () => {
                   title="Contemplative Reptile"
                 /> */}
                 <ReactPlayer
-                  // className={classes.media}
                   className="player-wrapper"
                   url={dish.url}
                   controls={true}
@@ -72,9 +79,6 @@ const DetailsPage = () => {
                   height="100%"
                 />
               </Card>
-
-              {/*   <DishComments selectedDish={dish} /> */}
-              {/*   <DishReviews selectedDish={dish} /> */}
             </Col>
             <Col md={4}>
               <div className="card-body">
@@ -89,10 +93,10 @@ const DetailsPage = () => {
                 >
                   <Rating
                     name="simple-controlled"
-                    value={value}
-                    onChange={(event, newValue) => {
+                    //  value={dish.comments[id].rating}
+                    /*   onChange={(event, newValue) => {
                       setValue(newValue);
-                    }}
+                    }} */
                   />
                   <h6 className="ml-2 mt-1 ">
                     {dish.comments.length} ( Reviews)
@@ -107,23 +111,16 @@ const DetailsPage = () => {
                   </h4>
                 </div>
                 <br />
-                {/*     <h4 className="card-title">
-                  {dish.ingredients.items}
-                  {dish.ingredients.quantity}
-                  {dish.ingredients.unit}
-                </h4> */}
+
                 <h5 className="mr-2 mt-2" style={{ fontSize: "20px" }}>
                   Quantity:
                 </h5>
-                <ButtonGroup
+                {/*    <ButtonGroup
                   variant="contained"
                   color="primary"
                   aria-label="contained primary button group"
                 >
                   <Button
-                    /* size="small"
-                    fontSize="small"
-                    className="btn btn-primary mr-1" */
                     disabled={dish.length === 1 ? true : false}
                     onClick={decreaseQuantity}
                   >
@@ -132,9 +129,12 @@ const DetailsPage = () => {
                   <input
                     readOnly
                     className="input pl-3"
-                    value={quantity}
                     type="number"
                     style={{ border: "none", width: "30px" }}
+                    value={qty}
+                    onChange={(e) => {
+                      dispatch(adjustItemQty(dish.id, e.target.value));
+                    }}
                   />
 
                   <Button
@@ -144,7 +144,20 @@ const DetailsPage = () => {
                   >
                     +
                   </Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
+                {/*     <div className="cartItem__qty">
+                  <label htmlFor="qty">Qty</label>
+                  <input
+                    min="1"
+                    type="number"
+                    id="qty"
+                    name="qty"
+                    value={quantity}
+                    onChange={(e) => {
+                      dispatch(adjustItemQty(id, e.target.value));
+                    }}
+                  />
+                </div> */}
                 {console.log(dish.ingredients)}
 
                 <p className="card-text">

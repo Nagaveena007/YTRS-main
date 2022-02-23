@@ -50,9 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CartCard = ({ breakfast, i }) => {
   const dispatch = useDispatch();
-
-  const [input, setInput] = useState(1 /* breakfast.qty */);
-
+  const qty = useSelector((state) => state.cart.recipesToBuy[i].qty);
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -82,10 +80,10 @@ const CartCard = ({ breakfast, i }) => {
               type="number"
               id="qty"
               name="qty"
-              value={input}
+              value={qty}
               onChange={(e) => {
-                setInput(e.target.value);
-                dispatch(adjustItemQty(breakfast.id, e.target.value));
+                //setInput(e.target.value);
+                dispatch(adjustItemQty(i, e.target.value));
               }}
             />
           </div>

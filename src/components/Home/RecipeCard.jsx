@@ -165,6 +165,7 @@ const RecipeCard = ({ breakfast, i }) => {
               size="small"
               className={classes.button}
               onClick={() => {
+                console.log("clicked");
                 dispatch(addToCartAction(breakfast));
               }}
               startIcon={<AddShoppingCartIcon />}

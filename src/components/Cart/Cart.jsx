@@ -11,7 +11,8 @@ import "./Cart.css";
 const Cart = () => {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
   let total = cartList.reduce(
-    (acc, currentValue) => acc + parseFloat(currentValue.price),
+    (acc, currentValue) =>
+      acc + parseFloat(currentValue.price) * currentValue.qty,
     0
   );
   const dispatch = useDispatch();

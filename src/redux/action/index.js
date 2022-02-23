@@ -22,7 +22,7 @@ export const removeFromCartAction = (index) => ({
 export const adjustItemQty = (index, qty) => ({
   type: ADJUST_ITEM_QTY,
   payload: {
-    id: index,
+    index: index,
     qty,
   },
 });
@@ -50,11 +50,12 @@ export const getRecipesAction = () => {
     try {
       const resp = await fetch(
         "http://localhost:3000/recipes"
-        // "https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
+        //"https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
       );
       if (resp.ok) {
         const food = await resp.json();
-        console.log("main object", food.records);
+        console.log("main object", food);
+        //const arrayOfRecipes = food.records.map((el) => el.fields);
         dispatch({
           type: GET_RECIPES,
           payload: food,

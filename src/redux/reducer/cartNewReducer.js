@@ -12,6 +12,8 @@ const cartNewReducer = (state = initialState.cart, action) => {
         item.id === action.payload.id ? true : false
       );
 
+      console.log("INCART", inCart);
+
       return {
         ...state,
         recipesToBuy: inCart
@@ -20,7 +22,7 @@ const cartNewReducer = (state = initialState.cart, action) => {
                 ? { ...item, qty: item.qty + 1 }
                 : item
             )
-          : [...state.recipesToBuy, { ...state.recipesToBuy, qty: 1 }],
+          : [...state.recipesToBuy, { ...action.payload, qty: 1 }],
       };
     case REMOVE_FROM_CART:
       return {
@@ -32,9 +34,9 @@ const cartNewReducer = (state = initialState.cart, action) => {
     case ADJUST_ITEM_QTY:
       return {
         ...state,
-        recipesToBuy: state.recipesToBuy.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, qty: +action.payload.qty }
+        recipesToBuy: state.recipesToBuy.map((item, i) =>
+          i === action.payload.index
+            ? { ...item, qty: action.payload.qty }
             : item
         ),
       };

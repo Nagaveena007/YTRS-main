@@ -5,13 +5,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { getRecipesAction } from "../../redux/action";
 const BreakFast = () => {
   const breakfast = useSelector((state) => state.recipes.recipesList);
+  console.log("breakfast", breakfast);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRecipesAction());
+  }, []);
 
   return (
     <Container>
       <Row>
-        {breakfast.fields.map((b, i) => (
+        {breakfast.map((b, i) => (
           <>
             <Col key={i} md={6}>
               <Image src={b.img} thumbnail />

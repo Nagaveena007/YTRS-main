@@ -212,7 +212,7 @@ const Sidebar = () => {
               <Link to={"/"}>
                 <img
                   className="mr-2"
-                  src="logo-crop.png"
+                  src="/logo-crop.PNG"
                   style={{ width: "120px" }}
                 />
 
@@ -248,7 +248,7 @@ const Sidebar = () => {
             <Link to={"/"}>
               <img
                 className="mr-2"
-                src="logo-crop.png"
+                src="/logo-crop.png"
                 style={{ width: "120px" }}
               />
               {/* <span style={{ color: "black", fontSize: "large" }}>

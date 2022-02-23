@@ -18,6 +18,7 @@ import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
 import DetailsPage from "./components/Details/DetailsPage";
 import NotFound from "./components/NotFoundPage/NotFound";
 import OrderSuccess from "./components/Payment/OrderSuccess";
+import Example from "./components/Payment/Example";
 
 const drawerWidth = 240;
 
@@ -92,8 +93,7 @@ function App() {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Routes>
-            
-                <Route path="/breakfast" element={<BreakFast />} /> 
+              <Route path="/brk" element={<BreakFast />} />
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckOut />} />
@@ -102,6 +102,7 @@ function App() {
               <Route path="/liked-Recipes" element={<LikedRecipes />} />
               <Route path="/details/:recipeId" element={<DetailsPage />} />
               <Route path="/order-success" element={<OrderSuccess />} />
+              <Route path="/demo" element={<Example />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
