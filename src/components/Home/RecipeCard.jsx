@@ -30,6 +30,39 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
+
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+const item = [
+  {
+    src: "https://i.ytimg.com/vi/pLqipJNItIo/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBkklsyaw9FxDmMKapyBYCn9tbPNQ",
+    title: "Don Diablo @ Tomorrowland Main Stage 2019 | Official…",
+    channel: "Don Diablo",
+    views: "396 k views",
+    createdAt: "a week ago",
+  },
+  {
+    src: "https://i.ytimg.com/vi/_Uu12zY01ts/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCpX6Jan2rxrCAZxJYDXppTP4MoQA",
+    title: "Queen - Greatest Hits",
+    channel: "Queen Official",
+    views: "40 M views",
+    createdAt: "3 years ago",
+  },
+  {
+    src: "https://i.ytimg.com/vi/kkLk2XWMBf8/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLB4GZTFu1Ju2EPPPXnhMZtFVvYBaw",
+    title: "Calvin Harris, Sam Smith - Promises (Official Video)",
+    channel: "Calvin Harris",
+    views: "130 M views",
+    createdAt: "10 months ago",
+  },
+  {
+    src: "https://i.ytimg.com/vi/pLqipJNItIo/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBkklsyaw9FxDmMKapyBYCn9tbPNQ",
+    title: "Don Diablo @ Tomorrowland Main Stage 2019 | Official…",
+    channel: "Don Diablo",
+    views: "396 k views",
+    createdAt: "a week ago",
+  },
+];
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -87,7 +120,7 @@ const RecipeCard = ({ breakfast, i }) => {
   }, []);
   return (
     <>
-      <Card
+      {/*   <Card
         className={`mx-1 my-2   ${classes.root}`}
         style={{ width: "18rem" }}
       >
@@ -189,7 +222,71 @@ const RecipeCard = ({ breakfast, i }) => {
             </IconButton>
           </IconButton>
         </CardActions>
-      </Card>
+      </Card> */}
+      <Grid>
+        <Box marginRight={1.5} my={5} style={{ width: "18rem" }}>
+          <Link to={`/details/` + breakfast.id}>
+            <img style={{ width: "18rem", height: 180 }} src={breakfast.img} />
+          </Link>
+          <Box pr={2}>
+            <Box className="d-flex mt-3">
+              <Avatar
+                className="mr-3 "
+                alt="Ted talk"
+                src="/shetru-kitchen.jpg"
+              />
+              <Typography gutterBottom variant="body2">
+                {breakfast.title}
+              </Typography>
+            </Box>
+            <Box className="" style={{ marginLeft: "57px" }}>
+              <Typography display="block" variant="body2" color="textSecondary">
+                {breakfast.name}
+              </Typography>
+              <Typography variant="caption" color="textSecondary">
+                Price: € {breakfast.price} • Cooking time:
+                {breakfast.cookingTime} min
+              </Typography>
+              <Typography variant="caption" color="textSecondary" className="">
+                <IconButton
+                  variant="warning"
+                  color="textSecondary"
+                  component="p"
+                >
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    onClick={() => {
+                      console.log("clicked");
+                      dispatch(addToCartAction(breakfast));
+                    }}
+                    startIcon={<AddShoppingCartIcon />}
+                  >
+                    cart
+                  </Button>
+                  {isFav ? (
+                    <AiFillHeart
+                      color="red"
+                      size={26}
+                      className="ml-5"
+                      onClick={toggleFavourite}
+                    />
+                  ) : (
+                    <AiOutlineHeart
+                      color="red"
+                      size={26}
+                      className="ml-5"
+                      onClick={toggleFavourite}
+                    />
+                  )}
+                </IconButton>
+              </Typography>{" "}
+            </Box>
+          </Box>
+        </Box>
+      </Grid>
     </>
   );
 };

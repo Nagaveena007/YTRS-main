@@ -1,15 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
 import FooterPart from "./components/Footer/FooterPart";
 import Home from "./components/Home/Home";
+import Recipes from "./components/Home/Recipes";
 import BreakFast from "./components/BreakFast/BreakFast";
-import RecipeStore from "./components/Food/RecipeStore";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/Payment/CheckOut";
 import { Container, Row, Col } from "react-bootstrap";
-import RecipeCard from "./components/Home/RecipeCard";
 import PaymentPage from "./components/Details/Reviews";
 import CartInd from "./components/Cart/CartInd";
 import Sidebar from "./components/Navbar/Sidebar";
@@ -18,7 +16,11 @@ import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
 import DetailsPage from "./components/Details/DetailsPage";
 import NotFound from "./components/NotFoundPage/NotFound";
 import OrderSuccess from "./components/Payment/OrderSuccess";
-import Example from "./components/Payment/Example";
+import Register from "./components/Login/Register";
+import Profile from "./components/Profile/Profile";
+import LoginLayout from "./components/Login/LoginLayout";
+import OrderDetails from "./components/OrderDetails/OrderDetails";
+import Demo from "./components/OrderDetails/Demo";
 
 const drawerWidth = 240;
 
@@ -102,12 +104,20 @@ function App() {
               <Route path="/liked-Recipes" element={<LikedRecipes />} />
               <Route path="/details/:recipeId" element={<DetailsPage />} />
               <Route path="/order-success" element={<OrderSuccess />} />
-              <Route path="/demo" element={<Example />} />
+              <Route path="/login" element={<LoginLayout />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/account" element={<Profile />} />
+              <Route path="/order" element={<OrderDetails />} />
+              <Route path="/order1" element={<Demo />} />
+              <Route path="/card" element={<Recipes />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
         </Container>
-        {/*  <FooterPart /> */}
+        {/*  <Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes> */}
       </BrowserRouter>
     </>
   );

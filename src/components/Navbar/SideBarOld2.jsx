@@ -18,7 +18,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Header from "../Header/Header";
-import RecipeStore from "../Food/RecipeStore";
 import Sidebar from "./SidebarOld1";
 /* 
 imports form Sidebar.jsx */

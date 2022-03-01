@@ -1,10 +1,8 @@
-import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../../components/Header/Header.css";
 import { Link } from "react-router-dom";
 import CartIndicator from "../Cart/CartIndicator";
-import Search from "./Search";
-import Chips from "../Cart/CartInd";
-import Chip from "@material-ui/core/Chip";
+
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -16,12 +14,25 @@ import MicIcon from "@material-ui/icons/Mic";
 import IconButton from "@material-ui/core/IconButton";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import AppsRoundedIcon from "@material-ui/icons/AppsRounded";
+
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import DraftsIcon from "@material-ui/icons/Drafts";
+import SendIcon from "@material-ui/icons/Send";
 const handleClick = () => {
   console.info("You clicked the Chip.");
 };
 const StyledBadge = withStyles((theme) => ({
   badge: {
     border: `2px solid ${theme.palette.background.paper}`,
+  },
+  paper: {
+    border: "1px solid #d3d4d5",
   },
 }))(Badge);
 const useStyles = makeStyles({
@@ -33,9 +44,48 @@ const useStyles = makeStyles({
     position: "sticky",
   },
 });
+
+const StyledMenu = withStyles({
+  paper: {
+    border: "1px solid #d3d4d5",
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "center",
+    }}
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "center",
+    }}
+    {...props}
+  />
+));
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    "&:focus": {
+      backgroundColor: theme.palette.primary.main,
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem);
+
 const Header = () => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <Navbar
@@ -88,11 +138,59 @@ const Header = () => {
               style={{ color: "#707070" }}
             />
             <CartIndicator />
-            <Avatar
-              alt="Remy Sharp"
-              src="/me-discord.jpg"
-              className="mr-1 ml-2 mt-2"
-            />
+
+            <div>
+              <Avatar
+                alt="Remy Sharp"
+                src="/me-discord.jpg"
+                className="mr-1 ml-2 mt-2"
+                aria-controls="customized-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              />
+
+              <StyledMenu
+                id="customized-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <Link to={"/account"}>
+                  <StyledMenuItem>
+                    <ListItemText
+                      primary="My Account"
+                      style={{ color: "black" }}
+                    />
+                  </StyledMenuItem>
+                </Link>
+
+                <Link to={"/orders"}>
+                  <StyledMenuItem>
+                    <ListItemText
+                      primary="My Orders"
+                      style={{ color: "black" }}
+                    />
+                  </StyledMenuItem>
+                </Link>
+
+                <StyledMenuItem>
+                  <ListItemText
+                    primary="Address Book"
+                    style={{ color: "black" }}
+                  />
+                </StyledMenuItem>
+
+                <Link to={"/login"}>
+                  <StyledMenuItem>
+                    <ListItemText
+                      primary="Sign Out"
+                      style={{ color: "black" }}
+                    />
+                  </StyledMenuItem>
+                </Link>
+              </StyledMenu>
+            </div>
           </Nav>
           {/*  <Search /> */}
         </Navbar.Collapse>

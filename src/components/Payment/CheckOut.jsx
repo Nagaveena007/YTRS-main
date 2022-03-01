@@ -73,7 +73,7 @@ export default function Checkout() {
     <>
       <Container fluid className=" mt-5">
         <Row>
-          <Col md={8} sm={12}>
+          {/*   <Col md={8} sm={12}>
             <h3>Shipping info</h3>
             <div>
               <h5>Name:</h5>
@@ -86,7 +86,7 @@ export default function Checkout() {
                 <Image
                   className="mr-5"
                   style={{ width: "15rem" }}
-                  src="me-discord.jpg"
+                  src=""
                 ></Image>
                 <div>
                   <h3 className="card-title">name</h3>
@@ -102,8 +102,8 @@ export default function Checkout() {
                 </div>
               </div>
             </div>
-          </Col>
-          <Col md={4} sm={12}>
+          </Col> */}
+          <Col md={12} sm={12}>
             <div>
               <TextField
                 sm={12}

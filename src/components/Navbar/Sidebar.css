@@ -30,7 +30,7 @@ a {
   align-items: center;
 }
 .menu__single:hover {
-  background-color: #f3eaea;
+  /*  background-color: #f3eaea; */
   text-decoration: transparent;
 }
 .menu__single active {
@@ -44,7 +44,7 @@ svg.menu__item {
 }
 
 .selected__menu {
-  background-color: #f3eaea;
+  /*  background-color: #f3eaea; */
   color: black;
   height: 48px;
   display: flex;

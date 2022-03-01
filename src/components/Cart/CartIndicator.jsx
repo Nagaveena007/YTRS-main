@@ -19,6 +19,7 @@ const CartIndicator = () => {
   const navigate = useNavigate();
 
   const cartLength = useSelector((state) => state.cart.recipesToBuy.length);
+  const qty = useSelector((state) => state.cart.recipesToBuy.qty);
 
   const dispatch = useDispatch();
 

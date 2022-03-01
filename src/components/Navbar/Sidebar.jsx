@@ -19,7 +19,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Header from "../Header/Header";
-import RecipeStore from "../Food/RecipeStore";
 
 /* 
 imports form Sidebar.jsx */
@@ -259,7 +258,7 @@ const Sidebar = () => {
         </div>
 
         <Divider />
-        <List>
+        <List selected__menu={selected__menu}>
           {iconName.map(({ name, index, icon, link }) => {
             return (
               <Link to={link} key={name}>

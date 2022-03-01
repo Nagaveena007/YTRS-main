@@ -27,11 +27,11 @@ const DetailsPage = () => {
   let id = parseInt(recipeId);
 
   const [dish, setDish] = useState(undefined);
-  // const [quantity, setQuantity] = useState(1);
-
-  // const quantity = useSelector((state) => state.cart.recipesToBuy[id].qty);
 
   const recipes = useSelector((state) => state.recipes.recipesList);
+  //const qty = useSelector((state) => state.cart.recipesToBuy[id].qty);
+  // {dish.comments[id].rating}
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,6 +51,13 @@ const DetailsPage = () => {
     const qty = quantity - 1;
     setQuantity(qty);
   }; */
+  let sum;
+  {
+    dish?.comments.map((number) => {
+      return (sum = number.rating);
+    });
+  }
+  console.log(sum);
   return (
     <Container>
       {dish ? (
@@ -93,11 +100,12 @@ const DetailsPage = () => {
                 >
                   <Rating
                     name="simple-controlled"
-                    //  value={dish.comments[id].rating}
+                    // value={dish.comments[id].rating}
                     /*   onChange={(event, newValue) => {
                       setValue(newValue);
                     }} */
                   />
+
                   <h6 className="ml-2 mt-1 ">
                     {dish.comments.length} ( Reviews)
                   </h6>
@@ -115,6 +123,7 @@ const DetailsPage = () => {
                 <h5 className="mr-2 mt-2" style={{ fontSize: "20px" }}>
                   Quantity:
                 </h5>
+
                 {/*    <ButtonGroup
                   variant="contained"
                   color="primary"
@@ -152,14 +161,13 @@ const DetailsPage = () => {
                     type="number"
                     id="qty"
                     name="qty"
-                    value={quantity}
+                    value={qty}
                     onChange={(e) => {
                       dispatch(adjustItemQty(id, e.target.value));
                     }}
                   />
                 </div> */}
                 {console.log(dish.ingredients)}
-
                 <p className="card-text">
                   <br />
                   <Button

@@ -49,7 +49,7 @@ export const getRecipesAction = () => {
   return async (dispatch) => {
     try {
       const resp = await fetch(
-        "http://localhost:3000/recipes"
+        "https://my-database-ytrs.herokuapp.com/recipes"
         //"https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
       );
       if (resp.ok) {
