@@ -28,8 +28,12 @@ const DetailsPage = () => {
 
   const [dish, setDish] = useState(undefined);
 
-  const recipes = useSelector((state) => state.recipes.recipesList);
-  //const qty = useSelector((state) => state.cart.recipesToBuy[id].qty);
+  const recipes = useSelector((state) => state.cart.recipesToBuy);
+  console.log("recipesss", recipes);
+  const qty = useSelector(
+    (state) => state.cart.recipesToBuy.find((el) => el.id === id)?.qty
+  );
+  console.log("QTY", qty);
   // {dish.comments[id].rating}
 
   const dispatch = useDispatch();
@@ -154,7 +158,7 @@ const DetailsPage = () => {
                     +
                   </Button>
                 </ButtonGroup> */}
-                {/*     <div className="cartItem__qty">
+                <div className="cartItem__qty">
                   <label htmlFor="qty">Qty</label>
                   <input
                     min="1"
@@ -166,7 +170,7 @@ const DetailsPage = () => {
                       dispatch(adjustItemQty(id, e.target.value));
                     }}
                   />
-                </div> */}
+                </div>
                 {console.log(dish.ingredients)}
                 <p className="card-text">
                   <br />

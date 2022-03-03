@@ -179,6 +179,7 @@ const Sidebar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  console.log("location", location);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -187,7 +188,9 @@ const Sidebar = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  return (
+  return location.pathname === "/login" || location.pathname === "/register" ? (
+    <></>
+  ) : (
     <>
       <CssBaseline />
       <AppBar

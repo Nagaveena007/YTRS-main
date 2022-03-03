@@ -19,10 +19,10 @@ export const removeFromCartAction = (index) => ({
   payload: index,
 });
 
-export const adjustItemQty = (index, qty) => ({
+export const adjustItemQty = (id, qty) => ({
   type: ADJUST_ITEM_QTY,
   payload: {
-    index: index,
+    id,
     qty,
   },
 });

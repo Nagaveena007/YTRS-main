@@ -139,7 +139,7 @@ export default function RegisterForm() {
             type="submit"
             variant="contained"
             loading={isSubmitting}
-            style={{ backgroundColor: "#00ab55" }}
+            /*  style={{ backgroundColor: "#00ab55" }} */
           >
             Register
           </LoadingButton>

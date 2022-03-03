@@ -1,10 +1,10 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // material
 import { styled } from "@mui/material/styles";
 import {
   Card,
   Stack,
-  Link,
+  
   Container,
   Typography,
   Grid,
@@ -70,7 +70,7 @@ export default function LoginLayout() {
   return (
     <Container maxWidth="sm">
       <ContentStyle>
-        <Stack sx={{ mb: 5 }} className="ml-2">
+        <Stack sx={{ mb: 3 }} className="ml-2">
           <Typography variant="h4" gutterBottom>
             Sign in to Youtube Recipe Store
           </Typography>
@@ -117,23 +117,15 @@ export default function LoginLayout() {
           </Typography>
         </Box>
         <Login />
-
         <Typography
+          color="textSecondary"
           variant="body2"
-          align="center"
-          sx={{
-            mt: 3,
-            display: { sm: "none" },
-          }}
+          style={{}}
+          className="mt-3 justify-content-center"
         >
-          Don’t have an account?
-          <Link
-            variant="subtitle2"
-            component={RouterLink}
-            to="register"
-            underline="hover"
-          >
-            Get started
+          Don&apos;t have an account?
+          <Link to={"/register"}>
+            <span> Sign Up</span>
           </Link>
         </Typography>
       </ContentStyle>

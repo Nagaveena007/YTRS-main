@@ -34,8 +34,8 @@ const cartNewReducer = (state = initialState.cart, action) => {
     case ADJUST_ITEM_QTY:
       return {
         ...state,
-        recipesToBuy: state.recipesToBuy.map((item, i) =>
-          i === action.payload.index
+        recipesToBuy: state.recipesToBuy.map((item) =>
+          item.id === action.payload.id
             ? { ...item, qty: action.payload.qty }
             : item
         ),

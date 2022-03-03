@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
+    height: "9vh",
   },
 }));
 
@@ -58,7 +59,7 @@ export default function StepperPart() {
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel> {label}</StepLabel>
           </Step>
         ))}
       </Stepper>

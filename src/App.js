@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import FooterPart from "./components/Footer/FooterPart";
 import Home from "./components/Home/Home";
 import Recipes from "./components/Home/Recipes";
@@ -105,10 +105,10 @@ function App() {
               <Route path="/details/:recipeId" element={<DetailsPage />} />
               <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/login" element={<LoginLayout />} />
+
               <Route path="/register" element={<Register />} />
               <Route path="/account" element={<Profile />} />
-              <Route path="/order" element={<OrderDetails />} />
-              <Route path="/order1" element={<Demo />} />
+              <Route path="/orders" element={<OrderDetails />} />
               <Route path="/card" element={<Recipes />} />
 
               <Route path="*" element={<NotFound />} />

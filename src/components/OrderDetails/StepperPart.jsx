@@ -9,6 +9,9 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    height: "9vh",
+    display: "flex",
+    flexDirection: "column",
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -16,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
+  },
+
+  image: {
+    width: 128,
+    height: 128,
   },
 }));
 
@@ -55,13 +63,21 @@ export default function StepperPart() {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      {/* <span md={1}>Track Order </span> */}
+      <Stepper
+        md={12}
+        activeStep={activeStep}
+        alternativeLabel
+        style={{ height: "5vh" }}
+      >
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel style={{ fontSize: "x-small" }}>{label}</StepLabel>
           </Step>
         ))}
+        <span className="ml-auto">Cancel</span>
       </Stepper>
+
       {/* <div>
         {activeStep === steps.length ? (
           <div>

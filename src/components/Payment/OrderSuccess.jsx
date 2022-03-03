@@ -1,5 +1,6 @@
 import { Button, Container } from "@material-ui/core";
 import { Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Payment.css";
 const OrderSuccess = () => {
   return (
@@ -14,17 +15,19 @@ const OrderSuccess = () => {
             />
           </div>
           <h2 className="mt-3">Your order has been placed successfully</h2>
-          <Button
-            className="Button__part mt-4"
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              width: "150px",
-              height: "50px",
-            }}
-          >
-            View Orders
-          </Button>
+          <Link to={"/orders"}>
+            <Button
+              className="Button__part mt-4"
+              style={{
+                backgroundColor: "black",
+                color: "white",
+                width: "150px",
+                height: "50px",
+              }}
+            >
+              View Orders
+            </Button>
+          </Link>
         </Row>
       </Container>
     </>

@@ -120,7 +120,77 @@ const RecipeCard = ({ breakfast, i }) => {
   }, []);
   return (
     <>
-      {/*   <Card
+      <Grid>
+        <Box marginRight={1.5} my={5} style={{ width: "18rem" }}>
+          <Link to={`/details/` + breakfast.id}>
+            <img style={{ width: "18rem", height: 180 }} src={breakfast.img} />
+          </Link>
+          <Box pr={2}>
+            <Box className="d-flex mt-3">
+              <Avatar
+                className="mr-3 "
+                alt="Ted talk"
+                src="/shetru-kitchen.jpg"
+              />
+              <Typography gutterBottom variant="body2">
+                {breakfast.title}
+              </Typography>
+            </Box>
+            <Box className="" style={{ marginLeft: "57px" }}>
+              <Typography display="block" variant="body2" color="textSecondary">
+                {breakfast.name}
+              </Typography>
+              <Typography variant="caption" color="textSecondary">
+                Price: € {breakfast.price} • Cooking time:
+                {breakfast.cookingTime} min
+              </Typography>
+              <Typography variant="caption" color="textSecondary" className="">
+                <IconButton
+                  variant="warning"
+                  color="textSecondary"
+                  component="p"
+                >
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    onClick={() => {
+                      console.log("clicked");
+                      dispatch(addToCartAction(breakfast));
+                    }}
+                    startIcon={<AddShoppingCartIcon />}
+                  >
+                    cart
+                  </Button>
+                  {isFav ? (
+                    <AiFillHeart
+                      color="red"
+                      size={26}
+                      className="ml-5"
+                      onClick={toggleFavourite}
+                    />
+                  ) : (
+                    <AiOutlineHeart
+                      color="red"
+                      size={26}
+                      className="ml-5"
+                      onClick={toggleFavourite}
+                    />
+                  )}
+                </IconButton>
+              </Typography>{" "}
+            </Box>
+          </Box>
+        </Box>
+      </Grid>
+    </>
+  );
+};
+
+export default RecipeCard;
+{
+  /*   <Card
         className={`mx-1 my-2   ${classes.root}`}
         style={{ width: "18rem" }}
       >
@@ -222,76 +292,8 @@ const RecipeCard = ({ breakfast, i }) => {
             </IconButton>
           </IconButton>
         </CardActions>
-      </Card> */}
-      <Grid>
-        <Box marginRight={1.5} my={5} style={{ width: "18rem" }}>
-          <Link to={`/details/` + breakfast.id}>
-            <img style={{ width: "18rem", height: 180 }} src={breakfast.img} />
-          </Link>
-          <Box pr={2}>
-            <Box className="d-flex mt-3">
-              <Avatar
-                className="mr-3 "
-                alt="Ted talk"
-                src="/shetru-kitchen.jpg"
-              />
-              <Typography gutterBottom variant="body2">
-                {breakfast.title}
-              </Typography>
-            </Box>
-            <Box className="" style={{ marginLeft: "57px" }}>
-              <Typography display="block" variant="body2" color="textSecondary">
-                {breakfast.name}
-              </Typography>
-              <Typography variant="caption" color="textSecondary">
-                Price: € {breakfast.price} • Cooking time:
-                {breakfast.cookingTime} min
-              </Typography>
-              <Typography variant="caption" color="textSecondary" className="">
-                <IconButton
-                  variant="warning"
-                  color="textSecondary"
-                  component="p"
-                >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    className={classes.button}
-                    onClick={() => {
-                      console.log("clicked");
-                      dispatch(addToCartAction(breakfast));
-                    }}
-                    startIcon={<AddShoppingCartIcon />}
-                  >
-                    cart
-                  </Button>
-                  {isFav ? (
-                    <AiFillHeart
-                      color="red"
-                      size={26}
-                      className="ml-5"
-                      onClick={toggleFavourite}
-                    />
-                  ) : (
-                    <AiOutlineHeart
-                      color="red"
-                      size={26}
-                      className="ml-5"
-                      onClick={toggleFavourite}
-                    />
-                  )}
-                </IconButton>
-              </Typography>{" "}
-            </Box>
-          </Box>
-        </Box>
-      </Grid>
-    </>
-  );
-};
-
-export default RecipeCard;
+      </Card> */
+}
 
 {
   /*      <ReactPlayer

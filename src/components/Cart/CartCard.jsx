@@ -84,7 +84,7 @@ const CartCard = ({ breakfast, i }) => {
               value={qty}
               onChange={(e) => {
                 //setInput(e.target.value);
-                dispatch(adjustItemQty(i, e.target.value));
+                dispatch(adjustItemQty(breakfast.id, e.target.value));
               }}
             />
           </div>
