@@ -28,7 +28,7 @@ const DetailsPage = () => {
 
   const [dish, setDish] = useState(undefined);
 
-  const recipes = useSelector((state) => state.cart.recipesToBuy);
+  const recipes = useSelector((state) => state.recipes.recipesList);
   console.log("recipesss", recipes);
   const qty = useSelector(
     (state) => state.cart.recipesToBuy.find((el) => el.id === id)?.qty

@@ -24,6 +24,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { addToCartAction } from "../../redux/action";
 import PostAddIcon from "@material-ui/icons/PostAdd";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 
 import { addToFavoAction, removeFromFavoAction } from "../../redux/action";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -31,6 +32,9 @@ import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 
+import ImageList from "@material-ui/core/ImageList";
+import ImageListItem from "@material-ui/core/ImageListItem";
+import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 const item = [
@@ -92,6 +96,20 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
   },
+  imageList: {
+    flexWrap: "nowrap",
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: "translateZ(0)",
+  },
+  title: {
+    /*  color: theme.palette.primary.light, */
+    color: "white",
+    fontSize: "large",
+  },
+  titleBar: {
+    background:
+      "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+  },
 }));
 
 const RecipeCard = ({ breakfast, i }) => {
@@ -122,9 +140,58 @@ const RecipeCard = ({ breakfast, i }) => {
     <>
       <Grid>
         <Box marginRight={1.5} my={5} style={{ width: "18rem" }}>
-          <Link to={`/details/` + breakfast.id}>
+          {/*    <Link to={`/details/` + breakfast.id}>
             <img style={{ width: "18rem", height: 180 }} src={breakfast.img} />
-          </Link>
+          </Link> */}
+          {/* <Link to={`/details/` + breakfast.id}> */}
+          <ImageList className={classes.imageList}>
+            <ImageListItem style={{ width: "100%" }}>
+              <Link to={`/details/` + breakfast.id}>
+                <img
+                  src={breakfast.img}
+                  alt={breakfast.name}
+                  style={{ width: "18rem", height: 180 }}
+                />
+              </Link>
+              <ImageListItemBar
+                title={
+                  <AddShoppingCartIcon
+                    style={{ color: "white" }}
+                    size={38}
+                    className="mr-2"
+                    onClick={() => {
+                      console.log("clicked");
+                      dispatch(addToCartAction(breakfast));
+                    }}
+                  />
+                }
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+                actionIcon={
+                  <IconButton>
+                    {/*  <StarBorderIcon className={classes.title} /> */}
+
+                    {isFav ? (
+                      <AiFillHeart
+                        color="#f50057"
+                        size={26}
+                        onClick={toggleFavourite}
+                      />
+                    ) : (
+                      <AiOutlineHeart
+                        color="white"
+                        size={26}
+                        onClick={toggleFavourite}
+                      />
+                    )}
+                  </IconButton>
+                }
+              />
+            </ImageListItem>
+          </ImageList>
+
           <Box pr={2}>
             <Box className="d-flex mt-3">
               <Avatar
@@ -150,7 +217,7 @@ const RecipeCard = ({ breakfast, i }) => {
                   color="textSecondary"
                   component="p"
                 >
-                  <Button
+                  {/*  <Button
                     variant="contained"
                     color="primary"
                     size="small"
@@ -162,8 +229,8 @@ const RecipeCard = ({ breakfast, i }) => {
                     startIcon={<AddShoppingCartIcon />}
                   >
                     cart
-                  </Button>
-                  {isFav ? (
+                  </Button> */}
+                  {/*       {isFav ? (
                     <AiFillHeart
                       color="red"
                       size={26}
@@ -177,7 +244,7 @@ const RecipeCard = ({ breakfast, i }) => {
                       className="ml-5"
                       onClick={toggleFavourite}
                     />
-                  )}
+                  )} */}
                 </IconButton>
               </Typography>{" "}
             </Box>

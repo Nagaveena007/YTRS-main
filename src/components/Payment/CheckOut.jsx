@@ -10,7 +10,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Image } from "react-bootstrap";
 const useStyles = makeStyles((theme) => ({
@@ -50,21 +50,19 @@ export default function Checkout() {
   const emptyCart = () => {
     localStorage.removeItem("cartItems");
   };
-
+  let navigate = useNavigate();
   const handleToken = async (token) => {
-    const response = await axios.post(
-      /*  "https://qb36s.sse.codesandbox.io/" */ "https://localhost:8080/checkout",
-      {
-        token,
-        toal_payment,
-        cartList,
-        /* product: { name: "test prd" }, */
-      }
-    );
+    const response = await axios.post("https://localhost:8080/checkout", {
+      token,
+      toal_payment,
+      cartList,
+      /* product: { name: "test prd" }, */
+    });
     const { status } = response.data;
     console.log("Response:", response.data);
     if (status === "success") {
-      toast("Success! Check email for details", { type: "success" });
+      navigate("/order-success");
+      // toast("Success! Check email for details", { type: "success" });
     } else {
       toast("Something went wrong", { type: "error" });
     }
@@ -73,36 +71,6 @@ export default function Checkout() {
     <>
       <Container fluid className=" mt-5">
         <Row>
-          {/*   <Col md={8} sm={12}>
-            <h3>Shipping info</h3>
-            <div>
-              <h5>Name:</h5>
-              <h5>Phone:</h5>
-              <h5>Address:</h5>
-            </div>
-            <div>
-              <h4>Your cart items:</h4>
-              <div className="d-flex mt-5 shadow-2xl bg-white rounded-lg">
-                <Image
-                  className="mr-5"
-                  style={{ width: "15rem" }}
-                  src=""
-                ></Image>
-                <div>
-                  <h3 className="card-title">name</h3>
-                  <p>
-                    <b className="text-success">In stock</b>
-                  </p>
-
-                  <hr></hr>
-                  <div className="d-flex">
-                    <h5>Price:</h5>
-                    <h4 className="pricedetail ml-2 text-danger"> € 10</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Col> */}
           <Col md={12} sm={12}>
             <div>
               <TextField
@@ -125,10 +93,10 @@ export default function Checkout() {
                       variant="contained"
                       style={{ width: "15%" }}
                       onClick={() => {
-                        setTip(5);
+                        setTip(2);
                       }}
                     >
-                      € 5
+                      € 2
                     </Button>
                     <Button
                       sm={12}
@@ -136,10 +104,10 @@ export default function Checkout() {
                       variant="contained"
                       style={{ width: "15%" }}
                       onClick={() => {
-                        setTip(10);
+                        setTip(4);
                       }}
                     >
-                      € 10
+                      € 4
                     </Button>
                     <Button
                       sm={12}
@@ -147,10 +115,10 @@ export default function Checkout() {
                       variant="contained"
                       style={{ width: "15%" }}
                       onClick={() => {
-                        setTip(15);
+                        setTip(6);
                       }}
                     >
-                      € 15
+                      € 6
                     </Button>
                     <Button
                       sm={12}
@@ -158,10 +126,10 @@ export default function Checkout() {
                       variant="contained"
                       style={{ width: "15%" }}
                       onClick={() => {
-                        setTip(20);
+                        setTip(8);
                       }}
                     >
-                      € 20
+                      € 8
                     </Button>
                     <Button
                       sm={12}
@@ -169,10 +137,10 @@ export default function Checkout() {
                       variant="contained"
                       style={{ width: "15%" }}
                       onClick={() => {
-                        setTip(25);
+                        setTip(10);
                       }}
                     >
-                      € 25
+                      € 10
                     </Button>
 
                     <div className="mt-2" style={{ color: "green" }}>
