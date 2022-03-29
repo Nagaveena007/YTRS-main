@@ -105,7 +105,6 @@ function App() {
               <Route path="/details/:recipeId" element={<DetailsPage />} />
               <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/login" element={<LoginLayout />} />
-
               <Route path="/register" element={<Register />} />
               <Route path="/account" element={<Profile />} />
               <Route path="/orders" element={<OrderDetails />} />
@@ -115,9 +114,6 @@ function App() {
             </Routes>
           </main>
         </Container>
-        {/*  <Routes>
-          <Route path="*" element={<NotFound />} />
-        </Routes> */}
       </BrowserRouter>
     </>
   );

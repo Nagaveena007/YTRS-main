@@ -33,7 +33,7 @@ export default function Checkout() {
   let totalPay = useSelector((state) => state.total.payment);
   const cartList = useSelector((state) => state.cart.recipesToBuy);
   const [tip, setTip] = useState(null);
-  console.log(totalPay);
+  // console.log(totalPay);
   const dispatch = useDispatch();
 
   const classes = useStyles();
@@ -58,6 +58,7 @@ export default function Checkout() {
       cartList,
       /* product: { name: "test prd" }, */
     });
+    console.log("response", response);
     const { status } = response.data;
     console.log("Response:", response.data);
     if (status === "success") {

@@ -179,7 +179,7 @@ const Sidebar = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  console.log("location", location);
+  //console.log("location", location);
 
   const handleDrawerOpen = () => {
     setOpen(true);
