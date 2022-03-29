@@ -52,7 +52,7 @@ export default function Checkout() {
   };
   let navigate = useNavigate();
   const handleToken = async (token) => {
-    const response = await axios.post("https://localhost:8080/checkout", {
+    const response = await axios.post("http://localhost:8080/checkout", {
       token,
       toal_payment,
       cartList,
