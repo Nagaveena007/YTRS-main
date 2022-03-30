@@ -2,7 +2,7 @@ import Button from "@material-ui/core/Button";
 
 import { FaTrash } from "react-icons/fa";
 import { Col, Container, Row } from "react-bootstrap";
-import { getTotal } from "../../redux/action";
+import { getTotal, clearCart } from "../../redux/action";
 import { useSelector, useDispatch } from "react-redux";
 import CartCard from "./CartCard";
 import Checkout from "../Payment/CheckOut";
@@ -53,6 +53,8 @@ const Cart = () => {
             )}
           </div>
         </div>
+        {/*         <Button onClick={() => dispatch(clearCart(cartList))}>Clear</Button>
+         */}{" "}
       </Row>
     </Container>
   );
