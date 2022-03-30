@@ -13,6 +13,8 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Image } from "react-bootstrap";
+import { clearCart } from "../../redux/action";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -52,7 +54,8 @@ export default function Checkout() {
   };
   let navigate = useNavigate();
   const handleToken = async (token) => {
-    const response = await axios.post("http://localhost:8080/checkout", {
+    // const response = await axios.post("http://localhost:8080/checkout", {
+    const response = await axios.post("http://stripe-api-ytrs.herokuapp.com", {
       token,
       toal_payment,
       cartList,
@@ -205,7 +208,7 @@ export default function Checkout() {
                   Payment={toal_payment * 100}
                   billingAddress
                   shippingAddress
-                  onClick={() => emptyCart()}
+                  //onClick={() => dispatch(clearCart(cartList))}
                 />
               </div>
             </div>

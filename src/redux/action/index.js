@@ -6,6 +6,7 @@ export const SET_TOTAL = "SET_TOTAL";
 export const SEARCH_QUERY = "SEARCH_QUERY";
 export const ADD_TO_FAV = "ADD_TO_FAV";
 export const REMOVE_FROM_FAV = "REMOVE_FROM_FAV";
+export const CLEAR_CART = "CLEAR_CART";
 export const ADJUST_ITEM_QTY = "ADJUST_ITEM_QTY";
 export const LOAD_CURRENT_ITEM = "LOAD_CURRENT_ITEM";
 
@@ -35,7 +36,10 @@ export const removeFromFavoAction = (food) => ({
   type: REMOVE_FROM_FAV,
   payload: food,
 });
-
+export const clearCart = (food) => ({
+  type: CLEAR_CART,
+  payload: food,
+});
 export const setUserName = (name) => ({
   type: SET_USER_NAME,
   payload: name,

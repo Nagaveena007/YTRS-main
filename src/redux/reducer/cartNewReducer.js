@@ -1,4 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QTY } from "../action";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  ADJUST_ITEM_QTY,
+  CLEAR_CART,
+} from "../action";
 import { initialState } from "../store";
 
 const cartNewReducer = (state = initialState.cart, action) => {
@@ -40,6 +45,10 @@ const cartNewReducer = (state = initialState.cart, action) => {
             : item
         ),
       };
+
+    case CLEAR_CART: {
+      return { ...state, recipesToBuy: [] };
+    }
 
     default:
       return state;
