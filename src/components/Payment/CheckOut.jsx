@@ -54,8 +54,8 @@ export default function Checkout() {
   };
   let navigate = useNavigate();
   const handleToken = async (token) => {
-    // const response = await axios.post("http://localhost:8080/checkout", {
-    const response = await axios.post("http://stripe-api-ytrs.herokuapp.com", {
+    const response = await axios.post("http://localhost:8080/checkout", {
+      //const response = await axios.post("http://stripe-api-ytrs.herokuapp.com", {
       token,
       toal_payment,
       cartList,
@@ -208,7 +208,7 @@ export default function Checkout() {
                   Payment={toal_payment * 100}
                   billingAddress
                   shippingAddress
-                  //onClick={() => dispatch(clearCart(cartList))}
+                  onClick={() => dispatch(clearCart(cartList))}
                 />
               </div>
             </div>
