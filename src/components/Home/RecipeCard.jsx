@@ -37,7 +37,6 @@ import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -111,10 +110,6 @@ const RecipeCard = ({ breakfast, i }) => {
     <>
       <Grid>
         <Box marginRight={1.5} my={5} style={{ width: "18rem" }}>
-          {/*    <Link to={`/details/` + breakfast.id}>
-            <img style={{ width: "18rem", height: 180 }} src={breakfast.img} />
-          </Link> */}
-          {/* <Link to={`/details/` + breakfast.id}> */}
           <ImageList className={classes.imageList}>
             <ImageListItem style={{ width: "100%" }}>
               <Link to={`/details/` + breakfast.id}>
@@ -142,8 +137,6 @@ const RecipeCard = ({ breakfast, i }) => {
                 }}
                 actionIcon={
                   <IconButton>
-                    {/*  <StarBorderIcon className={classes.title} /> */}
-
                     {isFav ? (
                       <AiFillHeart
                         color="#f50057"
@@ -187,36 +180,7 @@ const RecipeCard = ({ breakfast, i }) => {
                   variant="warning"
                   color="textSecondary"
                   component="p"
-                >
-                  {/*  <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    className={classes.button}
-                    onClick={() => {
-                      console.log("clicked");
-                      dispatch(addToCartAction(breakfast));
-                    }}
-                    startIcon={<AddShoppingCartIcon />}
-                  >
-                    cart
-                  </Button> */}
-                  {/*       {isFav ? (
-                    <AiFillHeart
-                      color="red"
-                      size={26}
-                      className="ml-5"
-                      onClick={toggleFavourite}
-                    />
-                  ) : (
-                    <AiOutlineHeart
-                      color="red"
-                      size={26}
-                      className="ml-5"
-                      onClick={toggleFavourite}
-                    />
-                  )} */}
-                </IconButton>
+                ></IconButton>
               </Typography>{" "}
             </Box>
           </Box>
@@ -227,131 +191,3 @@ const RecipeCard = ({ breakfast, i }) => {
 };
 
 export default RecipeCard;
-{
-  /*   <Card
-        className={`mx-1 my-2   ${classes.root}`}
-        style={{ width: "18rem" }}
-      >
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              N
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={breakfast.name}
-          subheader={`Cooking time: ${breakfast.cookingTime} min`}
-        />
-        <Link to={`/details/` + breakfast.id}>
-          <CardMedia
-            className={classes.media}
-            image={breakfast.img}
-            title={breakfast.name}
-            style={{ width: "18rem" }}
-          />
-        </Link>
-        <CardContent>
-          <Typography
-            noWrap
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            style={{
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              width: "16rem",
-            }}
-          >
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Typography paragraph variant="body2">
-            <strong>Price: € {breakfast.price}</strong>
-          </Typography>
-          <Typography paragraph variant="body2">
-            {isFav ? (
-              <AiFillHeart
-                color="red"
-                size={26}
-                className="ml-5"
-                onClick={toggleFavourite}
-              />
-            ) : (
-              <AiOutlineHeart
-                color="red"
-                size={26}
-                className="ml-5"
-                onClick={toggleFavourite}
-              />
-            )}
-          </Typography>
-          <Typography paragraph variant="body2">
-            <IconButton aria-label="share">
-              <PostAddIcon />
-            </IconButton>
-          </Typography>
-        </CardActions>
-        <CardActions>
-          <IconButton variant="warning" color="textSecondary" component="p">
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              className={classes.button}
-              onClick={() => {
-                console.log("clicked");
-                dispatch(addToCartAction(breakfast));
-              }}
-              startIcon={<AddShoppingCartIcon />}
-            >
-              cart
-            </Button>
-          </IconButton>
-          <IconButton variant="warning" color="textSecondary" component="p">
-            <Button
-              variant="contained"
-              color="secondary"
-              size="small"
-              className={classes.button}
-            >
-              buy
-            </Button>
-          </IconButton>
-          <IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-          </IconButton>
-        </CardActions>
-      </Card> */
-}
-
-{
-  /*      <ReactPlayer
-                className={classes.media} 
-                url={breakfast.url}
-                controls={true}
-                style={
-                  {
-                    // width: "16rem",
-                    //  objectFit: "cover", 
-                  }
-                }
-              /> */
-}
-{
-  /*  <iframe
-                src={breakfast.url}
-                frameBorder="0"
-                allowFullScreen
-                title={breakfast.name}
-                style={{ width: "18rem" }}
-              ></iframe> */
-}

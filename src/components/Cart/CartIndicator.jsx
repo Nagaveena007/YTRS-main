@@ -27,11 +27,11 @@ const CartIndicator = () => {
     <>
       <div className="" onClick={() => navigate("/cart")}>
         <IconButton aria-label="cart">
-          <StyledBadge badgeContent={cartLength} color="secondary">
-            <ShoppingCartIcon
-              style={{ width: "32px", height: "38px", color: "#707070" }}
-            />
-          </StyledBadge>
+          {/*  <StyledBadge badgeContent={cartLength} color="secondary"> */}
+          <ShoppingCartIcon
+            style={{ width: "32px", height: "38px", color: "#707070" }}
+          />
+          {/*   </StyledBadge> */}
         </IconButton>
       </div>
     </>

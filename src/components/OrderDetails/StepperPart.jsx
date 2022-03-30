@@ -75,7 +75,14 @@ export default function StepperPart() {
             <StepLabel style={{ fontSize: "x-small" }}>{label}</StepLabel>
           </Step>
         ))}
-        <span className="ml-auto">Cancel</span>
+        {/*  <span
+          className="ml-auto"
+          onClick={() => {
+            dispatch(removeFromCartAction(i));
+          }}
+        >
+          Cancel
+        </span> */}
       </Stepper>
 
       {/* <div>

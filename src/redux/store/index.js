@@ -18,6 +18,8 @@ export const initialState = {
   },
   recipes: {
     recipesList: [],
+    isError: false,
+    isLoading: false,
   },
   user: {
     userName: "",

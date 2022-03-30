@@ -8,6 +8,7 @@ import CartCard from "./CartCard";
 import Checkout from "../Payment/CheckOut";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import OrderDetails from "../OrderDetails/OrderDetails";
 const Cart = () => {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
   let total = cartList.reduce(
@@ -23,7 +24,9 @@ const Cart = () => {
         <div className="cart">
           <div className="cart__items">
             {cartList.map((recipe, i) => (
-              <CartCard breakfast={recipe} i={i} />
+              <>
+                <CartCard breakfast={recipe} i={i} />
+              </>
             ))}
           </div>
 

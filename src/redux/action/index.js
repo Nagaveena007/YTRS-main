@@ -9,7 +9,12 @@ export const REMOVE_FROM_FAV = "REMOVE_FROM_FAV";
 export const CLEAR_CART = "CLEAR_CART";
 export const ADJUST_ITEM_QTY = "ADJUST_ITEM_QTY";
 export const LOAD_CURRENT_ITEM = "LOAD_CURRENT_ITEM";
+export const ADMIN_PRODUCT_FAIL = "ADMIN_PRODUCT_FAIL";
+export const ADMIN_PRODUCT_REQUEST = "ADMIN_PRODUCT_REQUEST";
+export const ADMIN_PRODUCT_SUCCESS = "ADMIN_PRODUCT_SUCCESS";
 
+export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
+export const GET_PRODUCTS_LOADING = "GET_PRODUCTS_LOADING";
 export const addToCartAction = (food) => ({
   type: ADD_TO_CART,
   payload: food,
@@ -51,6 +56,10 @@ export const getTotal = (total) => ({
 
 export const getRecipesAction = () => {
   return async (dispatch) => {
+    dispatch({
+      type: GET_PRODUCTS_LOADING,
+      payload: true,
+    });
     try {
       const resp = await fetch(
         "https://my-database-ytrs.herokuapp.com/recipes"
@@ -64,9 +73,35 @@ export const getRecipesAction = () => {
           type: GET_RECIPES,
           payload: food,
         });
+        dispatch({
+          type: GET_PRODUCTS_ERROR,
+          payload: false,
+        });
+        dispatch({
+          type: GET_PRODUCTS_LOADING,
+          payload: false,
+        });
+      } else {
+        console.log("error");
+        dispatch({
+          type: GET_PRODUCTS_ERROR,
+          payload: true,
+        });
+        dispatch({
+          type: GET_PRODUCTS_LOADING,
+          payload: false,
+        });
       }
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: GET_PRODUCTS_ERROR,
+        payload: true,
+      });
+      dispatch({
+        type: GET_PRODUCTS_LOADING,
+        payload: false,
+      });
     }
   };
 };

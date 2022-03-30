@@ -21,6 +21,7 @@ import Profile from "./components/Profile/Profile";
 import LoginLayout from "./components/Login/LoginLayout";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
 import Demo from "./components/OrderDetails/Demo";
+import YouTube from "./components/Loader/Youtube";
 
 const drawerWidth = 240;
 
@@ -95,7 +96,6 @@ function App() {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Routes>
-              <Route path="/brk" element={<BreakFast />} />
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckOut />} />
@@ -108,7 +108,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/account" element={<Profile />} />
               <Route path="/orders" element={<OrderDetails />} />
-              <Route path="/card" element={<Recipes />} />
+              <Route path="/card" element={<YouTube />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

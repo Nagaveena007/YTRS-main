@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "./Demo.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotal } from "../../redux/action";
+import { parseISO, format } from "date-fns";
+import { removeFromCartAction } from "../../redux/action";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +33,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function OrderDetails() {
+  const [currentDate, setCurrentDate] = React.useState(
+    new Date().toLocaleString()
+  );
   const cartList = useSelector((state) => state.cart.recipesToBuy);
+  // console.log(currentDate);
   const dispatch = useDispatch();
 
   let total = cartList.reduce(
@@ -72,11 +78,17 @@ export default function OrderDetails() {
                           <h6 className="mb-0"> {recipe.name}</h6>
                         </div>
                         <div className="col my-auto ">
-                          <small>Ordered At : March 2, 2022 </small>
+                          <small>
+                            Ordered At : {currentDate}
+                            {/*   {format(
+                              parseISO(recipe.dateTime),
+                              "EEEE, MMM. do - HH:mm"
+                            )} */}
+                          </small>
                         </div>
 
                         <div className="col my-auto ">
-                          <small>Qty : 1</small>
+                          <small>Qty : {recipe.qty}</small>
                         </div>
                         <div className="col my-auto ">
                           <h6 className="mb-0"> €{recipe.price}</h6>
@@ -84,71 +96,26 @@ export default function OrderDetails() {
                       </div>
                     </div>
                   </div>
-
                   <StepperPart />
                 </div>
+                <a
+                  className="ml-auto"
+                  style={{
+                    color: "black",
+                    cursor: "pointer",
+                    marginRight: "10px",
+                    marginBottom: "10px",
+                  }}
+                  onClick={() => {
+                    dispatch(removeFromCartAction(i));
+                  }}
+                >
+                  Cancel
+                </a>
               </div>
             </div>
           </div>
         ))}
-
-        {/*   <div className="row mt-4">
-          <div className="col">
-            <div className="row justify-content-between">
-              <div className="col-auto">
-                <p className="mb-1 text-dark">
-                  <b>Order Details</b>
-                </p>
-              </div>
-              <div className="flex-sm-col text-right col">
-                <p className="mb-1">
-                  <b>Total</b>
-                </p>
-              </div>
-              <div className="flex-sm-col col-auto">
-                <p className="mb-1">€ {total}</p>
-              </div>
-            </div>
-            <div className="row justify-content-between">
-              <div className="flex-sm-col text-right col">
-                <p className="mb-1">
-                  {" "}
-                  <b>Discount</b>
-                </p>
-              </div>
-              <div className="flex-sm-col col-auto">
-                <p className="mb-1">&#8377;150</p>
-              </div>
-            </div>
-            <div className="row justify-content-between">
-              <div className="flex-sm-col text-right col">
-                <p className="mb-1">
-                  <b>GST 18%</b>
-                </p>
-              </div>
-              <div className="flex-sm-col col-auto">
-                <p className="mb-1">843</p>
-              </div>
-            </div>
-            <div className="row justify-content-between">
-              <div className="flex-sm-col text-right col">
-                <p className="mb-1">
-                  <b>Delivery Charges</b>
-                </p>
-              </div>
-              <div className="flex-sm-col col-auto">
-                <p className="mb-1">Free</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row invoice ">
-          <div className="col">
-            <p className="mb-1"> Invoice Number : 788152</p>
-            <p className="mb-1">Invoice Date : 22 Dec,2019</p>
-            <p className="mb-1">Recepits Voucher:18KU-62IIK</p>
-          </div>
-        </div> */}
       </div>
     </>
   );
