@@ -10,6 +10,8 @@ import { getTotal } from "../../redux/action";
 import { parseISO, format } from "date-fns";
 import { removeFromCartAction } from "../../redux/action";
 
+import { clearCart } from "../../redux/action";
+import { useEffect } from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -39,7 +41,9 @@ export default function OrderDetails() {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
   // console.log(currentDate);
   const dispatch = useDispatch();
-
+  /*  useEffect(() => {
+    // dispatch(addToOrderAction(cartList));
+  }, []); */
   let total = cartList.reduce(
     (acc, currentValue) =>
       acc + parseFloat(currentValue.price) * currentValue.qty,

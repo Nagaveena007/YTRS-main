@@ -3,13 +3,15 @@ import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Payment.css";
 import { clearCart } from "../../redux/action";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { addToOrderAction } from "../../redux/action";
 const OrderSuccess = () => {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // dispatch(addToOrderAction(cartList));
     dispatch(clearCart(cartList));
   }, []);
   return (

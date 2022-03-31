@@ -12,6 +12,9 @@ export const LOAD_CURRENT_ITEM = "LOAD_CURRENT_ITEM";
 export const ADMIN_PRODUCT_FAIL = "ADMIN_PRODUCT_FAIL";
 export const ADMIN_PRODUCT_REQUEST = "ADMIN_PRODUCT_REQUEST";
 export const ADMIN_PRODUCT_SUCCESS = "ADMIN_PRODUCT_SUCCESS";
+export const REMOVE_FROM_ORDER = "REMOVE_FROM_ORDER";
+export const ADD_TO_ORDER = "ADD_TO_ORDER";
+export const GET_ORDERS = "GET_ORDERS";
 
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING = "GET_PRODUCTS_LOADING";
@@ -19,9 +22,17 @@ export const addToCartAction = (food) => ({
   type: ADD_TO_CART,
   payload: food,
 });
-
 export const removeFromCartAction = (index) => ({
   type: REMOVE_FROM_CART,
+  payload: index,
+});
+export const addToOrderAction = (food) => ({
+  type: ADD_TO_ORDER,
+  payload: food,
+});
+
+export const removeFromOrderAction = (index) => ({
+  type: REMOVE_FROM_ORDER,
   payload: index,
 });
 
@@ -102,6 +113,25 @@ export const getRecipesAction = () => {
         type: GET_PRODUCTS_LOADING,
         payload: false,
       });
+    }
+  };
+};
+export const getOrdersAction = () => {
+  return async (dispatch) => {
+    try {
+      const resp = await fetch("https://my-database-ytrs.herokuapp.com/orders");
+      if (resp.ok) {
+        const food = await resp.json();
+        console.log("main object", food);
+        dispatch({
+          type: GET_ORDERS,
+          payload: food,
+        });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 };

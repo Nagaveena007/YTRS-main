@@ -2,7 +2,6 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useFormik, Form, FormikProvider } from "formik";
 import { useNavigate } from "react-router-dom";
-// material
 import {
   Box,
   Button,
@@ -13,10 +12,7 @@ import {
 } from "@mui/material";
 import { Stack, TextField, IconButton, InputAdornment } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-// component
-import Iconify from "./Iconify";
 import { Link } from "react-router-dom";
-// ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();
@@ -48,7 +44,7 @@ export default function RegisterForm() {
     },
     validationSchema: RegisterSchema,
     onSubmit: () => {
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     },
   });
 
@@ -98,11 +94,7 @@ export default function RegisterForm() {
                   <IconButton
                     edge="end"
                     onClick={() => setShowPassword((prev) => !prev)}
-                  >
-                    <Iconify
-                      icon={showPassword ? "eva:eye-fill" : "eva:eye-off-fill"}
-                    />
-                  </IconButton>
+                  ></IconButton>
                 </InputAdornment>
               ),
             }}
@@ -139,7 +131,6 @@ export default function RegisterForm() {
             type="submit"
             variant="contained"
             loading={isSubmitting}
-            /*  style={{ backgroundColor: "#00ab55" }} */
           >
             Register
           </LoadingButton>

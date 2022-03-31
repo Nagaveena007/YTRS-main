@@ -13,7 +13,7 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-import Iconify from "./Iconify";
+//import Iconify from "./Iconify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function Login() {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     },
   });
 
@@ -69,9 +69,9 @@ export default function Login() {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={handleShowPassword} edge="end">
-                    <Iconify
+                    {/*   <Iconify
                       icon={showPassword ? "eva:eye-fill" : "eva:eye-off-fill"}
-                    />
+                    /> */}
                   </IconButton>
                 </InputAdornment>
               ),

@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import FooterPart from "./components/Footer/FooterPart";
 import Home from "./components/Home/Home";
 import Recipes from "./components/Home/Recipes";
-import BreakFast from "./components/BreakFast/BreakFast";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/Payment/CheckOut";
 import { Container, Row, Col } from "react-bootstrap";
@@ -16,13 +15,13 @@ import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
 import DetailsPage from "./components/Details/DetailsPage";
 import NotFound from "./components/NotFoundPage/NotFound";
 import OrderSuccess from "./components/Payment/OrderSuccess";
-import Register from "./components/Login/Register";
 import Profile from "./components/Profile/Profile";
-import LoginLayout from "./components/Login/LoginLayout";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
-import Demo from "./components/OrderDetails/Demo";
-import YouTube from "./components/Loader/Youtube";
-
+//import Register from "./components/Registration/Register";
+import Register from "./components/Login/Register";
+import { useState } from "react";
+import LoginLayout from "./components/Login/LoginLayout";
+import Cancel from "./components/StripeAPI/Cancel";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -87,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function App() {
+  const [loggedIn, setloggedIn] = useState(false);
+
+  function callbackFunction(childData) {
+    setloggedIn(childData);
+  }
   const classes = useStyles();
   return (
     <>
@@ -106,9 +110,10 @@ function App() {
               <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/login" element={<LoginLayout />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/cancel" element={<Cancel />} />
+
               <Route path="/account" element={<Profile />} />
               <Route path="/orders" element={<OrderDetails />} />
-
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

@@ -21,6 +21,9 @@ export const initialState = {
     isError: false,
     isLoading: false,
   },
+  orders: {
+    ordersList: [],
+  },
   user: {
     userName: "",
   },

@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 const CartCard = ({ breakfast, i }) => {
   const dispatch = useDispatch();
   const qty = useSelector((state) => state.cart.recipesToBuy[i].qty);
-  console.log("i am i", typeof i);
+  // console.log("i am i", typeof i);
   const classes = useStyles();
 
   React.useEffect(() => {

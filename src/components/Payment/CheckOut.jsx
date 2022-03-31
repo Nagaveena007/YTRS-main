@@ -194,12 +194,7 @@ export default function Checkout() {
                 >
                   ADD COUPON
                 </Typography>
-                {/*   <Link to="/payment-page">
-              <Button variant="contained" size="large" color="primary">
-                Place order
-                <ArrowForwardIcon className="ml-2" />
-              </Button>
-            </Link> */}
+
                 <StripeCheckout
                   stripeKey="pk_test_51KSjz0EcIioZXTXKo4xyhU5Y1HoNIOVXBRKjy5fxcZ7TFEyQ7eCCwp7SeS2rMJQNmYnUYQfP6ZsFZzZXCQt8P9Bd00plTWBxMc"
                   token={handleToken}
@@ -208,6 +203,7 @@ export default function Checkout() {
                   Payment={toal_payment * 100}
                   billingAddress
                   shippingAddress
+                  /*  dispatch(createOrder(cartList)) */
                 />
               </div>
             </div>
