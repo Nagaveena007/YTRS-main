@@ -19,7 +19,7 @@ img.logo {
   margin-right: 4.5em;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .menu__single {
   color: black;
@@ -28,6 +28,7 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+
 }
 .menu__single:hover {
   /*  background-color: #f3eaea; */

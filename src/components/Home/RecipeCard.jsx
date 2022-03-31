@@ -138,21 +138,25 @@ const RecipeCard = ({ breakfast, i }) => {
                   title: classes.title,
                 }}
                 actionIcon={
-                  <IconButton>
-                    {isFav ? (
-                      <AiFillHeart
-                        color="#f50057"
-                        size={26}
-                        onClick={toggleFavourite}
-                      />
-                    ) : (
-                      <AiOutlineHeart
-                        color="white"
-                        size={26}
-                        onClick={toggleFavourite}
-                      />
-                    )}
-                  </IconButton>
+                  <button className="actions__heartBtn mr-3 ">
+                    <>
+                      {isFav ? (
+                        <AiFillHeart
+                          className=""
+                          size={25}
+                          color="#f50057"
+                          onClick={toggleFavourite}
+                        />
+                      ) : (
+                        <AiOutlineHeart
+                          size={25}
+                          className=""
+                          color="white"
+                          onClick={toggleFavourite}
+                        />
+                      )}
+                    </>
+                  </button>
                 }
               />
             </ImageListItem>

@@ -17,7 +17,6 @@ import NotFound from "./components/NotFoundPage/NotFound";
 import OrderSuccess from "./components/Payment/OrderSuccess";
 import Profile from "./components/Profile/Profile";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
-//import Register from "./components/Registration/Register";
 import Register from "./components/Login/Register";
 import { useState } from "react";
 import LoginLayout from "./components/Login/LoginLayout";

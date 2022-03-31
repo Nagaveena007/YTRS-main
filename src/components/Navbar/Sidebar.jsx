@@ -197,7 +197,7 @@ const Sidebar = () => {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-        style={{ backgroundColor: "white", color: "black" }}
+        style={{ backgroundColor: "white", color: "black", underline: "none" }}
       >
         <Toolbar>
           <IconButton
@@ -209,7 +209,7 @@ const Sidebar = () => {
               [classes.hide]: open,
             })}
           >
-            <div>
+            <div style={{ underline: "none" }}>
               <MenuIcon />
               <Link to={"/"}>
                 <img
@@ -281,7 +281,7 @@ const Sidebar = () => {
                     }
                     onClick={(e) => setSelected__menu(true)}
                     primary={name}
-                    style={{ color: "black" }}
+                    style={{ color: "black", underline: "none" }}
                   />
                 </ListItem>
               </Link>

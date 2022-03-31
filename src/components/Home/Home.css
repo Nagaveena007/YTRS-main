@@ -18,7 +18,7 @@
 hr {
   margin-top: 6px;
 }
-.actions__cartBtn {
+.actions__cartBtn:hover {
   background-color: #f1f1f1;
   color: black;
   padding: 7px 10px;
@@ -27,7 +27,7 @@ hr {
   border-radius: 5px;
   text-align: center;
 }
-.actions__cartBtn:hover {
+.actions__cartBtn {
   background-color: black;
   color: white;
   padding: 7px 10px;
@@ -35,4 +35,26 @@ hr {
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+}
+.actions__heartBtn{
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 52px;
+  height: 35px;
+
+}
+.actions__heartBtn:hover {
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 52px;
+  height: 35px;
+
 }
