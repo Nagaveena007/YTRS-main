@@ -208,7 +208,6 @@ export default function Checkout() {
                   Payment={toal_payment * 100}
                   billingAddress
                   shippingAddress
-                  onClick={() => dispatch(clearCart(cartList))}
                 />
               </div>
             </div>

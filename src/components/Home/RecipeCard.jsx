@@ -121,15 +121,17 @@ const RecipeCard = ({ breakfast, i }) => {
               </Link>
               <ImageListItemBar
                 title={
-                  <AddShoppingCartIcon
-                    style={{ color: "white" }}
-                    size={38}
-                    className="mr-2"
-                    onClick={() => {
-                      console.log("clicked");
-                      dispatch(addToCartAction(breakfast));
-                    }}
-                  />
+                  <button className="actions__cartBtn">
+                    {" "}
+                    <AddShoppingCartIcon
+                      size={38}
+                      className="mr-2 "
+                      onClick={() => {
+                        console.log("clicked");
+                        dispatch(addToCartAction(breakfast));
+                      }}
+                    />
+                  </button>
                 }
                 classes={{
                   root: classes.titleBar,

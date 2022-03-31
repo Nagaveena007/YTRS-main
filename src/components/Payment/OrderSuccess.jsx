@@ -2,7 +2,16 @@ import { Button, Container } from "@material-ui/core";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Payment.css";
+import { clearCart } from "../../redux/action";
+import { useSelector, useDispatch } from "react-redux";
+
 const OrderSuccess = () => {
+  const cartList = useSelector((state) => state.cart.recipesToBuy);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearCart(cartList));
+  }, []);
   return (
     <>
       <Container fluid className="container__part">

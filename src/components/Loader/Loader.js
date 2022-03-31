@@ -7,22 +7,22 @@ import Skeleton from "@material-ui/lab/Skeleton";
 const Loader = ({ recipes }) => {
   return (
     <div style={{ textAlign: "center" }}>
-      {/*   <Spinner
+      <Spinner
         variant="success"
         animation="border"
         style={{ width: "5vmax", height: "5vmax" }}
-      /> */}
-      <Grid container>
+      />
+      {/*   <Grid container>
         {recipes.map((b, i) => (
           <Box style={{ width: "18rem" }} my={5} key={b.id}>
             <Skeleton variant="rect" width={280} height={188} />
             <Box pt={0.5}>
-              <Skeleton />
+              <Skeleton width="90%" />
               <Skeleton width="80%" />
             </Box>
           </Box>
         ))}
-      </Grid>
+      </Grid> */}
     </div>
   );
 };

@@ -108,7 +108,6 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/account" element={<Profile />} />
               <Route path="/orders" element={<OrderDetails />} />
-              <Route path="/card" element={<YouTube />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

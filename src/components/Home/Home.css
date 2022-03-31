@@ -18,3 +18,21 @@
 hr {
   margin-top: 6px;
 }
+.actions__cartBtn {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 7px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.actions__cartBtn:hover {
+  background-color: black;
+  color: white;
+  padding: 7px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
