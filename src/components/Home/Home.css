@@ -58,3 +58,11 @@ hr {
   height: 35px;
 
 }
+.actions__heartBtn:hover .heart-outline{
+color: red !important;
+
+}
+.actions__heartBtn .heart-outline{
+  color: white !important;
+  
+  }

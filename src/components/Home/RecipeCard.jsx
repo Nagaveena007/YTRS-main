@@ -31,12 +31,15 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
+import Badge from "@material-ui/core/Badge";
 
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import BadgeVisibility from "./Recipes";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -84,7 +87,10 @@ const useStyles = makeStyles((theme) => ({
 
 const RecipeCard = ({ breakfast, i }) => {
   const like = useSelector((s) => s.like);
-
+  const qty = useSelector(
+    (state) => state.cart.recipesToBuy.find((el) => el.i === i)?.qty
+  );
+  const [count, setCount] = React.useState(0);
   const dispatch = useDispatch();
 
   const isFav = like.likedRecipes.find((food) => food.id === breakfast.id);
@@ -123,14 +129,16 @@ const RecipeCard = ({ breakfast, i }) => {
                 title={
                   <button className="actions__cartBtn">
                     {" "}
-                    <AddShoppingCartIcon
-                      size={38}
-                      className="mr-2 "
-                      onClick={() => {
-                        console.log("clicked");
-                        dispatch(addToCartAction(breakfast));
-                      }}
-                    />
+                    <Badge color="secondary" badgeContent={count}>
+                      <AddShoppingCartIcon
+                        size={38}
+                        className="mr-2 "
+                        onClick={() => {
+                          dispatch(addToCartAction(breakfast));
+                          setCount(count + 1);
+                        }}
+                      />
+                    </Badge>
                   </button>
                 }
                 classes={{
@@ -150,8 +158,7 @@ const RecipeCard = ({ breakfast, i }) => {
                       ) : (
                         <AiOutlineHeart
                           size={25}
-                          className=""
-                          color="white"
+                          className="heart-outline"
                           onClick={toggleFavourite}
                         />
                       )}

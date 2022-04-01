@@ -44,24 +44,15 @@ const DetailsPage = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  /*  const increaseQuantity = () => {
-    if (dish && dish.length <= quantity) return;
-    const qty = quantity + 1;
-    setQuantity(qty);
-  }; */
 
-  /*  const decreaseQuantity = () => {
-    if (1 >= quantity) return;
-    const qty = quantity - 1;
-    setQuantity(qty);
-  }; */
-  let sum;
+  let sum = 0;
   {
     dish?.comments.map((number) => {
-      return (sum = number.rating);
+      return (sum += number.rating);
     });
   }
-  console.log(sum);
+  const average = sum / dish?.comments.length;
+  console.log("average", average);
   return (
     <Container>
       {dish ? (
@@ -75,13 +66,6 @@ const DetailsPage = () => {
                   height: "60vh",
                 }}
               >
-                {/*  <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  //  height="140"
-                  image={dish.img}
-                  title="Contemplative Reptile"
-                /> */}
                 <ReactPlayer
                   className="player-wrapper"
                   url={dish.url}
@@ -102,13 +86,7 @@ const DetailsPage = () => {
                   component="fieldset"
                   borderColor="transparent"
                 >
-                  <Rating
-                    name="simple-controlled"
-                    // value={dish.comments[id].rating}
-                    /*   onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }} */
-                  />
+                  <Rating name="half-rating" precision={0.5} value={average} />
 
                   <h6 className="ml-2 mt-1 ">
                     {dish.comments.length} ( Reviews)
@@ -127,37 +105,6 @@ const DetailsPage = () => {
                 <h5 className="mr-2 mt-2" style={{ fontSize: "20px" }}>
                   Quantity:
                 </h5>
-
-                {/*    <ButtonGroup
-                  variant="contained"
-                  color="primary"
-                  aria-label="contained primary button group"
-                >
-                  <Button
-                    disabled={dish.length === 1 ? true : false}
-                    onClick={decreaseQuantity}
-                  >
-                    -
-                  </Button>
-                  <input
-                    readOnly
-                    className="input pl-3"
-                    type="number"
-                    style={{ border: "none", width: "30px" }}
-                    value={qty}
-                    onChange={(e) => {
-                      dispatch(adjustItemQty(dish.id, e.target.value));
-                    }}
-                  />
-
-                  <Button
-                    //className="btn btn-primary ml-1"
-                    disabled={dish.length === 1 ? true : false}
-                    onClick={increaseQuantity}
-                  >
-                    +
-                  </Button>
-                </ButtonGroup> */}
                 <div className="cartItem__qty">
                   <label htmlFor="qty">Qty</label>
                   <input

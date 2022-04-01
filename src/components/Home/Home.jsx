@@ -29,7 +29,7 @@ const Home = () => {
         ) : (
           <Row className="justify-content-start align-items-center">
             {recipes.map((b, i) => (
-              <RecipeCard breakfast={b} key={i} />
+              <RecipeCard breakfast={b} key={i} i={i} />
             ))}
           </Row>
         )}
