@@ -15,6 +15,7 @@ export const ADMIN_PRODUCT_SUCCESS = "ADMIN_PRODUCT_SUCCESS";
 export const REMOVE_FROM_ORDER = "REMOVE_FROM_ORDER";
 export const ADD_TO_ORDER = "ADD_TO_ORDER";
 export const GET_ORDERS = "GET_ORDERS";
+export const ADD_ORDERS = "ADD_ORDERS";
 
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING = "GET_PRODUCTS_LOADING";
@@ -26,9 +27,9 @@ export const removeFromCartAction = (index) => ({
   type: REMOVE_FROM_CART,
   payload: index,
 });
-export const addToOrderAction = (food) => ({
+export const addToOrderAction = (arrayOfFoods) => ({
   type: ADD_TO_ORDER,
-  payload: food,
+  payload: arrayOfFoods,
 });
 
 export const removeFromOrderAction = (index) => ({
@@ -52,9 +53,8 @@ export const removeFromFavoAction = (food) => ({
   type: REMOVE_FROM_FAV,
   payload: food,
 });
-export const clearCart = (food) => ({
+export const clearCart = () => ({
   type: CLEAR_CART,
-  payload: food,
 });
 export const setUserName = (name) => ({
   type: SET_USER_NAME,
@@ -132,6 +132,31 @@ export const getOrdersAction = () => {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+export const addOrdersAction = (order) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(
+        `https://my-database-ytrs.herokuapp.com/orders`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(order),
+          // body: JSON.stringify({ title: `POST request` }),
+        }
+      );
+      if (response.ok) {
+        const food = await response.json();
+        dispatch({
+          type: ADD_ORDERS,
+          payload: food,
+        });
+        alert("Successfully added new Order");
+      }
+    } catch (e) {
+      alert(e);
     }
   };
 };

@@ -5,6 +5,7 @@ import cartNewReducer from "../reducer/cartNewReducer";
 import likeReducer from "../reducer/likeReducer";
 import recipeReducer from "../reducer/recipeReducer";
 import totalReducer from "../reducer/totalReducer";
+import orderReducer from "../reducer/orderReducer";
 
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -39,6 +40,7 @@ const bigReducer = combineReducers({
   recipes: recipeReducer,
   total: totalReducer,
   like: likeReducer,
+  orders: orderReducer,
 });
 const persistConfig = {
   key: "root",

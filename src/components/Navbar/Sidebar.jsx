@@ -210,13 +210,18 @@ const Sidebar = () => {
             })}
           >
             <div style={{ underline: "none" }}>
-              <MenuIcon />
+              <MenuIcon
+                style={{
+                  width: "28px",
+                  height: "42px",
+                  marginTop: "8px",
+                  marginRight: "8px",
+                  marginLeft: "-8px",
+                  color: "#757575",
+                }}
+              />
               <Link to={"/"}>
-                <img
-                  className="mr-2"
-                  src="/logo-crop.PNG"
-                  style={{ width: "120px" }}
-                />
+                <img className="" src="/logo.png" style={{ width: "120px" }} />
 
                 {/*    <span style={{ color: "black" }}>Y-T RecipeStore</span> */}
               </Link>
@@ -244,13 +249,23 @@ const Sidebar = () => {
       >
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose} className="">
-            <>{theme.direction === "rtl" ? <MenuIcon /> : <MenuIcon />}</>
+            <>
+              {theme.direction === "rtl" ? (
+                <MenuIcon
+                  style={{ width: "28px", height: "42px", marginTop: "8px" }}
+                />
+              ) : (
+                <MenuIcon
+                  style={{ width: "28px", height: "42px", marginTop: "8px" }}
+                />
+              )}
+            </>
           </IconButton>
-          <div style={{ paddingRight: "20px" }}>
+          <div style={{ paddingRight: "20px", paddingLeft: "12px" }}>
             <Link to={"/"}>
               <img
                 className="mr-2"
-                src="/logo-crop.png"
+                src="/logo.png"
                 style={{ width: "120px" }}
               />
               {/* <span style={{ color: "black", fontSize: "large" }}>

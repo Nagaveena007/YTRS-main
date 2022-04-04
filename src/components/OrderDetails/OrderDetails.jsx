@@ -8,7 +8,10 @@ import "./Demo.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotal } from "../../redux/action";
 import { parseISO, format } from "date-fns";
-import { removeFromCartAction } from "../../redux/action";
+import {
+  removeFromCartAction,
+  removeFromOrderAction,
+} from "../../redux/action";
 
 import { clearCart } from "../../redux/action";
 import { useEffect } from "react";
@@ -39,11 +42,10 @@ export default function OrderDetails() {
     new Date().toLocaleString()
   );
   const cartList = useSelector((state) => state.cart.recipesToBuy);
+  const orders = useSelector((state) => state.orders.ordersList);
   // console.log(currentDate);
   const dispatch = useDispatch();
-  /*  useEffect(() => {
-    // dispatch(addToOrderAction(cartList));
-  }, []); */
+
   let total = cartList.reduce(
     (acc, currentValue) =>
       acc + parseFloat(currentValue.price) * currentValue.qty,
@@ -59,7 +61,7 @@ export default function OrderDetails() {
             Your Orders
           </Typography>
         </Grid>
-        {cartList.map((recipe, i) => (
+        {orders.map((recipe, i) => (
           <div
             className="row mb-4"
             style={{ width: "88%", marginLeft: "75px" }}
@@ -111,7 +113,7 @@ export default function OrderDetails() {
                     marginBottom: "10px",
                   }}
                   onClick={() => {
-                    dispatch(removeFromCartAction(i));
+                    dispatch(removeFromOrderAction(i));
                   }}
                 >
                   Cancel

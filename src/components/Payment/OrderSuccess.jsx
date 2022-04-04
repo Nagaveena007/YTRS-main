@@ -5,15 +5,20 @@ import "./Payment.css";
 import { clearCart } from "../../redux/action";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToOrderAction } from "../../redux/action";
+import { addToOrderAction, addOrdersAction } from "../../redux/action";
 const OrderSuccess = () => {
   const cartList = useSelector((state) => state.cart.recipesToBuy);
+  //const orders = useSelector((state) => state.orders.ordersList);
+  // let newOrders = Object.assign([], cartList);
+  // console.log(newOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
     // dispatch(addToOrderAction(cartList));
-    dispatch(clearCart(cartList));
+    dispatch(addOrdersAction(cartList));
+    dispatch(clearCart());
   }, []);
+  // console.log("orders", orders);
   return (
     <>
       <Container fluid className="container__part">
