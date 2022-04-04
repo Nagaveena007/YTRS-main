@@ -173,14 +173,14 @@ const Header = () => {
                     />
                   </StyledMenuItem>
                 </Link>
-
-                <StyledMenuItem>
-                  <ListItemText
-                    primary="Address Book"
-                    style={{ color: "black" }}
-                  />
-                </StyledMenuItem>
-
+                <Link to={"/liked-Recipes"}>
+                  <StyledMenuItem>
+                    <ListItemText
+                      primary="Favourite Recipes"
+                      style={{ color: "black" }}
+                    />
+                  </StyledMenuItem>
+                </Link>
                 <Link to={"/login"}>
                   <StyledMenuItem>
                     <ListItemText

@@ -221,7 +221,7 @@ const Sidebar = () => {
                 }}
               />
               <Link to={"/"}>
-                <img className="" src="/logo.png" style={{ width: "120px" }} />
+                <img className="" src="/logo.PNG" style={{ width: "120px" }} />
 
                 {/*    <span style={{ color: "black" }}>Y-T RecipeStore</span> */}
               </Link>
@@ -265,7 +265,7 @@ const Sidebar = () => {
             <Link to={"/"}>
               <img
                 className="mr-2"
-                src="/logo.png"
+                src="/logo.PNG"
                 style={{ width: "120px" }}
               />
               {/* <span style={{ color: "black", fontSize: "large" }}>
