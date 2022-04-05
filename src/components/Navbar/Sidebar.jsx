@@ -38,7 +38,7 @@ import FlagIcon from "@material-ui/icons/Flag";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import AnnouncementIcon from "@material-ui/icons/Announcement";
 import { Link, useLocation } from "react-router-dom";
-
+import logo from "./logo.PNG";
 import { useState } from "react";
 const drawerWidth = 240;
 
@@ -221,7 +221,7 @@ const Sidebar = () => {
                 }}
               />
               <Link to={"/"}>
-                <img className="" src="/logo.PNG" style={{ width: "120px" }} />
+                <img className="" src={logo} style={{ width: "120px" }} />
 
                 {/*    <span style={{ color: "black" }}>Y-T RecipeStore</span> */}
               </Link>
@@ -263,11 +263,7 @@ const Sidebar = () => {
           </IconButton>
           <div style={{ paddingRight: "20px", paddingLeft: "12px" }}>
             <Link to={"/"}>
-              <img
-                className="mr-2"
-                src="/logo.PNG"
-                style={{ width: "120px" }}
-              />
+              <img className="mr-2" src={logo} style={{ width: "120px" }} />
               {/* <span style={{ color: "black", fontSize: "large" }}>
                 Y-T RecipeStore
               </span> */}
