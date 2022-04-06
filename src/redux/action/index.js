@@ -1,3 +1,5 @@
+import Alert from "@material-ui/lab/Alert";
+
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const SET_USER_NAME = "SET_USER_NAME";
@@ -19,6 +21,7 @@ export const ADD_ORDERS = "ADD_ORDERS";
 
 export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const GET_PRODUCTS_LOADING = "GET_PRODUCTS_LOADING";
+
 export const addToCartAction = (food) => ({
   type: ADD_TO_CART,
   payload: food,
@@ -154,10 +157,11 @@ export const addOrdersAction = (order) => {
           type: ADD_ORDERS,
           payload: food,
         });
-        alert("Successfully added new Order");
+        console.log("Successfully added new Order");
+        // <Alert severity="success">Successfully added new Order</Alert>;
       }
     } catch (e) {
-      alert(e);
+      console.log(e);
     }
   };
 };
