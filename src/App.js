@@ -7,7 +7,7 @@ import Recipes from "./components/Home/Recipes";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/Payment/CheckOut";
 import { Container, Row, Col } from "react-bootstrap";
-import PaymentPage from "./components/Details/Reviews";
+//import PaymentPage from "./components/Details/Reviews";
 import CartInd from "./components/Cart/CartInd";
 import Sidebar from "./components/Navbar/Sidebar";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -102,8 +102,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckOut />} />
-              <Route path="/payment-page" element={<PaymentPage />} />
-              <Route path="/cart-Ind" element={<CartInd />} />
+{/*               <Route path="/payment-page" element={<PaymentPage />} />
+ */}              <Route path="/cart-Ind" element={<CartInd />} />
               <Route path="/liked-Recipes" element={<LikedRecipes />} />
               <Route path="/details/:recipeId" element={<DetailsPage />} />
               <Route path="/order-success" element={<OrderSuccess />} />
