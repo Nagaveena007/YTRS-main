@@ -67,7 +67,6 @@ export const getTotal = (total) => ({
   type: SET_TOTAL,
   payload: Number(total),
 });
-
 export const getRecipesAction = () => {
   return async (dispatch) => {
     dispatch({
@@ -76,8 +75,9 @@ export const getRecipesAction = () => {
     });
     try {
       const resp = await fetch(
+        'https://nagaveena007.github.io/dataBase-YTRS/db.json'
         //"https://my-database-ytrs.herokuapp.com/recipes"
-        "http://localhost:3000/recipes"
+       // "http://localhost:3000/recipes"
         //"https://api.airtable.com/v0/appTaPWT8FuYGIzGm/Recipes?api_key=keyAS1qqs37KlnJBF"
       );
       if (resp.ok) {
@@ -86,7 +86,7 @@ export const getRecipesAction = () => {
         //const arrayOfRecipes = food.records.map((el) => el.fields);
         dispatch({
           type: GET_RECIPES,
-          payload: food,
+          payload: food.recipes, // here food.recipes only for the github fetch link
         });
         dispatch({
           type: GET_PRODUCTS_ERROR,
@@ -123,13 +123,16 @@ export const getRecipesAction = () => {
 export const getOrdersAction = () => {
   return async (dispatch) => {
     try {
-      const resp = await fetch("https://my-database-ytrs.herokuapp.com/orders");
+      const resp = await fetch(
+        'https://nagaveena007.github.io/dataBase-YTRS/db.json'
+       // "https://my-database-ytrs.herokuapp.com/orders"
+        );
       if (resp.ok) {
         const food = await resp.json();
         console.log("main object", food);
         dispatch({
           type: GET_ORDERS,
-          payload: food,
+          payload: food.orders,
         });
       } else {
         console.log("error");
@@ -143,7 +146,8 @@ export const addOrdersAction = (order) => {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        `https://my-database-ytrs.herokuapp.com/orders`,
+        `https://nagaveena007.github.io/dataBase-YTRS/db.json`,
+        //`https://my-database-ytrs.herokuapp.com/orders`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -155,7 +159,7 @@ export const addOrdersAction = (order) => {
         const food = await response.json();
         dispatch({
           type: ADD_ORDERS,
-          payload: food,
+          payload: food.orders,
         });
         console.log("Successfully added new Order");
         // <Alert severity="success">Successfully added new Order</Alert>;
